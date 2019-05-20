@@ -1,3 +1,4 @@
+import { ClothesTypeComponent } from './clothes-type/clothes-type.component';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductComponent } from './product/product.component';
@@ -6,9 +7,7 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  { path: '',
-  component: AppComponent 
- },
+ 
   {
   path:'koszyk',
   component : ShopingCartComponent
@@ -17,7 +16,10 @@ const routes: Routes = [
    path: 'product/:id',
    component : ProductComponent
 },
-
+{
+  path: ':Type',
+  component : ClothesTypeComponent
+},
 { path: '**',
  component: PageNotFoundComponent 
 }

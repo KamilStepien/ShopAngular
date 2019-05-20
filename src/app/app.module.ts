@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
+import { ClothesTypeComponent } from './clothes-type/clothes-type.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {MatMenuModule} from '@angular/material/menu';
     ShopingCartComponent,
     ProductComponent,
     PageNotFoundComponent,
+    ClothesTypeComponent,
     
   ],
   imports: [
