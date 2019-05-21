@@ -12,7 +12,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
 import { ClothesTypeComponent } from './clothes-type/clothes-type.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { AngularSvgIconModule } from 'angular-svg-icon';
+import { LoginComponent } from './login/login.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,8 @@ import { ClothesTypeComponent } from './clothes-type/clothes-type.component';
     ProductComponent,
     PageNotFoundComponent,
     ClothesTypeComponent,
+    LoginComponent,
+    CreateAccountComponent,
     
   ],
   imports: [
@@ -31,7 +37,10 @@ import { ClothesTypeComponent } from './clothes-type/clothes-type.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatMenuModule
+    MatMenuModule,
+    HttpClientModule,
+    AngularSvgIconModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
