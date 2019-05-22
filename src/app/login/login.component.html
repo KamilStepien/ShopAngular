@@ -1,13 +1,14 @@
-<form class="example-form">
+
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Login" >
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Hasło" >
+    <input type="password" matInput placeholder="Hasło" >
   </mat-form-field>
+  
   <button mat-stroked-button>Zaloguj</button>
-  <button mat-stroked-button>Rejestracja</button>
-</form>
+  <button mat-stroked-button [routerLink]="['/rejestracja']" >Rejestracja</button>
+
 
 

@@ -1,3 +1,18 @@
-<p>
-  create-account works!
-</p>
+<div id="form">
+  <form [formGroup]="newUser">
+    <mat-form-field>
+      <input matInput type="text" formControlName="name" placeholder="Imie">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="lastName" placeholder="Nazwisko">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="e_mail"  placeholder="E-Mail">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="phoneNumber" placeholder="Numer Telefonu">
+    </mat-form-field>
+    
+    <button color="primary" mat-raised-button  [disabled]="newUser.invalid">Stwórz Konto</button>
+  </form>
+</div>

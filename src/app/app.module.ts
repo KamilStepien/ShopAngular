@@ -17,6 +17,9 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { LoginComponent } from './login/login.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import {MatInputModule} from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import {MatInputModule} from '@angular/material/input';
     MatMenuModule,
     HttpClientModule,
     AngularSvgIconModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

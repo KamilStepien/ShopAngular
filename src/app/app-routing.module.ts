@@ -1,3 +1,4 @@
+import { CreateAccountComponent } from './create-account/create-account.component';
 import { ClothesTypeComponent } from './clothes-type/clothes-type.component';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
   path:'koszyk',
   component : ShopingCartComponent
+},
+{
+  path:'rejestracja',
+  component : CreateAccountComponent
 },
 {
    path: 'product/:id',
