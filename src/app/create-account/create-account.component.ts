@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DbService } from '../db.service';
 
 @Component({
   selector: 'app-create-account',
@@ -8,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CreateAccountComponent implements OnInit {
   newUser: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder ,  private db: DbService,) { }
 
   ngOnInit( ) {
     this.newUser = this.fb.group({
