@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DbService } from '../db.service';
+
+import { AuthService } from '../auth.service';
+
+
 
 @Component({
   selector: 'app-create-account',
@@ -9,15 +12,20 @@ import { DbService } from '../db.service';
 })
 export class CreateAccountComponent implements OnInit {
   newUser: FormGroup;
-  constructor(private fb: FormBuilder ,  private db: DbService,) { }
+  
+  constructor(private fb: FormBuilder ,  private auth:AuthService) { }
 
   ngOnInit( ) {
     this.newUser = this.fb.group({
-      name: ['', Validators.required],
-      lastName: ['', Validators.required],
-      e_mail: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
-
+     
+      password: ['', Validators.required],
+      email: ['', Validators.required],
     });
+  }
+  
+
+  addUser()
+  {
+      this.auth.register(this.newUser.value.email,this.newUser.value.password);
   }
 }

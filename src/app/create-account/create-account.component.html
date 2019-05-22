@@ -1,18 +1,13 @@
 <div id="form">
   <form [formGroup]="newUser">
-    <mat-form-field>
-      <input matInput type="text" formControlName="name" placeholder="Imie">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput type="text" formControlName="lastName" placeholder="Nazwisko">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput type="text" formControlName="e_mail"  placeholder="E-Mail">
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput type="text" formControlName="phoneNumber" placeholder="Numer Telefonu">
-    </mat-form-field>
+      <mat-form-field>
+          <input matInput type="text" formControlName="email" placeholder="E-mail">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" formControlName="password" placeholder="Hasło">
+          </mat-form-field>
+   
     
-    <button color="primary" mat-raised-button  [disabled]="newUser.invalid">Stwórz Konto</button>
+    <button color="primary" mat-raised-button (click)="addUser()" [disabled]="newUser.invalid">Stwórz Konto</button>
   </form>
 </div>

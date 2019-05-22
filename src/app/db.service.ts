@@ -9,14 +9,14 @@ export class DbService {
 
   constructor(private db: AngularFirestore) { }
 
-  /*getFilm(id: string): Observable<any> {
-    return this.db.doc('filmy/' + id).get();
+  getUser(name: string ):Observable<any> {
+    return this.db.doc('users/' + name).get();
   }
 
-  addFilm(film: Film) {
-    this.db.collection('filmy').add(film);
+  addUser(newUser: user) {
+    this.db.collection('users').add(newUser);
   }
-
+/*
   editFilm(film: Film) {
     this.db.doc('filmy/' + film.id).update(film);
   }
@@ -24,9 +24,9 @@ export class DbService {
   deleteFilm(id: string) {
     this.db.doc('filmy/' + id).delete();
   }
-
-  getFilms(): Observable<any> {
-    return this.db.collection('filmy').snapshotChanges();
+*/
+ getUsers() {
+    return this.db.collection('users').get();
   }
- */
+ 
 }
