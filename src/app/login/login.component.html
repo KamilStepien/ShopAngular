@@ -1,14 +1,20 @@
-
-  <mat-form-field class="example-full-width">
-    <input matInput placeholder="Login" >
+<form [formGroup]="loginUser" >
+  <div  id= "loginView" *ngIf="user == null" >
+  <mat-form-field>
+    <input  matInput type="text" formControlName="email" placeholder="E-mail">
   </mat-form-field>
+  <mat-form-field>
+      <input matInput type="password" formControlName="password" placeholder="Hasło">
+    </mat-form-field>
+    <button mat-stroked-button   (click)="login()" >Zaloguj</button>
+    <button mat-stroked-button  [routerLink]="['/rejestracja']" >Rejestracja</button>
 
-  <mat-form-field class="example-full-width">
-    <input type="password" matInput placeholder="Hasło" >
-  </mat-form-field>
-  
-  <button mat-stroked-button>Zaloguj</button>
-  <button mat-stroked-button [routerLink]="['/rejestracja']" >Rejestracja</button>
-
+  </div>
+  <div  id= "loginInView"  *ngIf="user != null" >
+       Jestś zalogowany na konto: {{user.name}}
+      <button mat-stroked-button   (click)="loginOut()" >Wyloguj</button>
+  </div>
+   
+</form>
 
 

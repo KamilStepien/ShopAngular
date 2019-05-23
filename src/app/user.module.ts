@@ -1,11 +1,22 @@
 class user
 {
-    id: number;
+
     name :string;
     lastName:string;
     password:string;
-    login:string;
     e_mail:string;
-    phoneNumber:string;
+    addres:string;
+
+    constructor( name :string,lastName:string,password:string,e_mail:string,addres:string) {
+        this.name = name;
+        this.lastName = lastName;
+        this.password = password;
+        this.e_mail = e_mail;
+        this.addres = addres;
+    }
+
+
+
+    
 
 }

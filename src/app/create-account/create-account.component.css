@@ -5,4 +5,7 @@ form {
     align-items: center;
     
   }
-  
+  .example-full-width
+  {
+    padding: 10px;
+  }

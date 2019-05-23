@@ -1,5 +1,5 @@
 
-.example-full-width 
+.mat-form-field
 {
     width: 20%;
     padding-left: 2%;
@@ -10,4 +10,10 @@ button
 {
     margin-left: 1%;
     font-size: 12px;
+}
+#loginInView , #loginUser
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 }

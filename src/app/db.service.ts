@@ -25,7 +25,7 @@ export class DbService {
     this.db.doc('filmy/' + id).delete();
   }
 */
- getUsers() {
+ getUsers():Observable<any> {
     return this.db.collection('users').get();
   }
  

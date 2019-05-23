@@ -1,13 +1,40 @@
 <div id="form">
-  <form [formGroup]="newUser">
-      <mat-form-field>
-          <input matInput type="text" formControlName="email" placeholder="E-mail">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput type="text" formControlName="password" placeholder="Hasło">
-          </mat-form-field>
-   
-    
-    <button color="primary" mat-raised-button (click)="addUser()" [disabled]="newUser.invalid">Stwórz Konto</button>
-  </form>
-</div>
+    <form [formGroup]="newUser">
+  
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width">
+              <input matInput  formControlName="name" placeholder="Imie">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width">
+              <input matInput formControlName="lastName" placeholder="Nazwisko">
+            </mat-form-field></td>
+          </tr></table>
+              
+                <table class="example-full-width" cellspacing="0"><tr>
+                  <td><mat-form-field class="example-full-width">
+                      <input matInput placeholder="Email" [formControl]="emailFormControl">
+                      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                        Please enter a valid email address
+                      </mat-error>
+                      <mat-error *ngIf="emailFormControl.hasError('required')">
+                        Email is <strong>required</strong>
+                      </mat-error>
+                    
+                    </mat-form-field></td>
+                  <td><mat-form-field class="example-full-width">
+                    <input matInput formControlName="password" placeholder="Hasło">
+                  </mat-form-field></td>
+                </tr></table>
+              
+                <p>
+                  <mat-form-field class="example-full-width">
+                    <textarea matInput formControlName="address" placeholder="Adress"></textarea>
+                  </mat-form-field>
+                 
+                </p>
+              
+         <P *ngIf="dubleEmail" > Podany address email już jest w naszej bazie</P>     
+      <button color="primary" mat-raised-button (click)="addUser()" [disabled]=" emailFormControl.invalid || newUser.invalid ">Stwórz Konto</button>
+    </form>
+  </div>
+  
