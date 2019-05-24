@@ -24,6 +24,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
 import { SearchComponent } from './search/search.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SearchComponent } from './search/search.component';
     LoginComponent,
     CreateAccountComponent,
     SearchComponent,
+    CategoriesComponent,
     
   ],
   imports: [

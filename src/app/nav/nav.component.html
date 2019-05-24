@@ -2,44 +2,18 @@
 <nav>
   <div id="naviLeft">
 <i    class="fas fa-home"></i>
-<button [routerLink]="[ '/StrefaMeska']" mat-button [matMenuTriggerFor]="Man" >Strefa Męska  </button>
-<mat-menu #Man="matMenu">
-  <button mat-menu-item [routerLink]="[ '/StrefaMeska/koszulkiZNadrukiem']">Koszulki z nadrukiem</button>
-  <button mat-menu-item [routerLink]="[ '/StrefaMeska/koszulkiBezNadruku']">Koszulki bez nadruku</button>
-  <button mat-menu-item [routerLink]="[ '/StrefaMeska/BluzyZNadrukiem']">Bluzy z nadrukiem</button>
-  <button mat-menu-item [routerLink]="[ '/StrefaMeska/BluzyBezNadruku']">Bluzy bez nadruku</button>
-</mat-menu>
-<button [routerLink]="[ '/StrefaDamska']" mat-button [matMenuTriggerFor]="Woman">Strefa Damska</button>
-<mat-menu #Woman="matMenu">
-  <button mat-menu-item [routerLink]="[ '/StrefaDamska/koszulkiZNadrukiem']">Koszulki z nadrukiem</button>
-  <button mat-menu-item [routerLink]="[ '/StrefaDamska/koszulkiBezNadruku']">Koszulki bez nadruku</button>
-  <button mat-menu-item [routerLink]="[ '/StrefaDamska/BluzyZNadrukiem']">Bluzy z nadrukiem</button>
-  <button mat-menu-item [routerLink]="[ '/StrefaDamska/BluzyBezNadruku']">Bluzy bez nadruku</button>
-</mat-menu>
-<button [routerLink]="[ '/StrefaDziecieca']" mat-button [matMenuTriggerFor]="child">Strefa Dziecięca</button>
-<mat-menu #child="matMenu">
-  <button mat-menu-item [routerLink]="[ '/StrefaDziecieca/koszulkiZNadrukiem']">Koszulki z nadrukiem</button>
-  <button mat-menu-item [routerLink]="[ '/StrefaDziecieca/koszulkiBezNadruku']">Koszulki bez nadruku</button>
-  <button mat-menu-item [routerLink]="[ '/StrefaDziecieca/BluzyZNadrukiem']">Bluzy z nadrukiem</button>
-  <button mat-menu-item [routerLink]="[ '/StrefaDziecieca/BluzyBezNadruku']">Bluzy bez nadruku</button>
-</mat-menu>
-<button [routerLink]="[ '/Strefa2x-5x']" mat-button [matMenuTriggerFor]="over2x">Strefa 2x-5x</button>
-<mat-menu #over2x="matMenu">
-  <button mat-menu-item [routerLink]="[ '/Strefa2x-5x/koszulkiZNadrukiem']">Koszulki z nadrukiem</button>
-  <button mat-menu-item [routerLink]="[ '/Strefa2x-5x/koszulkiBezNadruku']">Koszulki bez nadruku</button>
-  <button mat-menu-item [routerLink]="[ '/Strefa2x-5x/BluzyZNadrukiem']">Bluzy z nadrukiem</button>
-  <button mat-menu-item [routerLink]="[ '/Strefa2x-5x/BluzyBezNadruku']">Bluzy bez nadruku</button>
-</mat-menu>
-<button [routerLink]="[ '/Wyprzedaz']" mat-button [matMenuTriggerFor]="sale">Wyprzedaż</button>
-<mat-menu #sale="matMenu">
-  <button mat-menu-item [routerLink]="[ '/Wyprzedaz/koszulkiZNadrukiem']">Koszulki z nadrukiem</button>
-  <button mat-menu-item [routerLink]="[ '/Wyprzedaz/koszulkiBezNadruku']">Koszulki bez nadruku</button>
-  <button mat-menu-item [routerLink]="[ '/Wyprzedaz/BluzyZNadrukiem']">Bluzy z nadrukiem</button>
-  <button mat-menu-item [routerLink]="[ '/Wyprzedaz/BluzyBezNadruku']">Bluzy bez nadruku</button>
-</mat-menu>
+<button mat-button [routerLink]="[ '/nowosci']"  >Nowości </button>
+<button mat-button [routerLink]="[ '/promocje']" >Promocje</button>
+<button mat-button [routerLink]="[ '/wyprzedaz']" >Wyprzedaże</button>
+<button mat-button [routerLink]="[ '/kontakt']" >kontakt</button>
+<button mat-button [routerLink]="[ '/dostawa-i-platnosci']" >Dostawa i płatności</button>
+<button mat-button [routerLink]="[ '/filtry']" >Filtry</button>
+
 </div>
 <div id="naviRight">
+    
     <i [routerLink]="['/koszyk']" routerLinkActive="router-link-active"  class="fas fa-shopping-cart"></i>
     <i [routerLink]="['/logowanie']" routerLinkActive="router-link-active" class="fas fa-user"></i>
 </div>
+
 </nav>

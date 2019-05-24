@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
+  text:string;
   constructor() { }
 
   ngOnInit() {
   }
 
+
+  search(input:string)
+  {
+    this.text = input;
+    console.log(input);
+  }
 }
