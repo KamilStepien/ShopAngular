@@ -1,5 +1,7 @@
 
 <nav>
+  <div id="naviLeft">
+<i    class="fas fa-home"></i>
 <button [routerLink]="[ '/StrefaMeska']" mat-button [matMenuTriggerFor]="Man" >Strefa Męska  </button>
 <mat-menu #Man="matMenu">
   <button mat-menu-item [routerLink]="[ '/StrefaMeska/koszulkiZNadrukiem']">Koszulki z nadrukiem</button>
@@ -35,4 +37,9 @@
   <button mat-menu-item [routerLink]="[ '/Wyprzedaz/BluzyZNadrukiem']">Bluzy z nadrukiem</button>
   <button mat-menu-item [routerLink]="[ '/Wyprzedaz/BluzyBezNadruku']">Bluzy bez nadruku</button>
 </mat-menu>
+</div>
+<div id="naviRight">
+    <i [routerLink]="['/koszyk']" routerLinkActive="router-link-active"  class="fas fa-shopping-cart"></i>
+    <i [routerLink]="['/logowanie']" routerLinkActive="router-link-active" class="fas fa-user"></i>
+</div>
 </nav>

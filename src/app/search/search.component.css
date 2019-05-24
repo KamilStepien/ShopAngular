@@ -1,0 +1,16 @@
+
+div
+{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.example-full-width
+{
+    width: 60%;
+}
+button
+{
+    margin-left: 4%;
+}

@@ -1,10 +1,10 @@
 import { Observable } from 'rxjs/index';
 import { auth, User } from 'firebase';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { AuthService } from './../auth.service';
+
 import { Component, OnInit } from '@angular/core';
 import { DbService } from '../db.service';
-import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-login',

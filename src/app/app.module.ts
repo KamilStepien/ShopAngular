@@ -4,14 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
-import { SearchClothesComponent } from './search-clothes/search-clothes.component';
 import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
 import { ProductComponent } from './product/product.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
-import { ClothesTypeComponent } from './clothes-type/clothes-type.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { LoginComponent } from './login/login.component';
@@ -25,18 +23,18 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    SearchClothesComponent,
     ShopingCartComponent,
     ProductComponent,
     PageNotFoundComponent,
-    ClothesTypeComponent,
     LoginComponent,
     CreateAccountComponent,
+    SearchComponent,
     
   ],
   imports: [
