@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-   
+  
 }
 img
 {
@@ -12,4 +12,17 @@ img
     justify-content: center;
     display: flex;
     align-items: center;
+}
+div
+{
+    display: flex;
+    justify-content: stretch;
+    padding: 1%
+    
+}
+#routerOutleDisplay
+{
+    justify-content: center;
+    display: flex;
+    
 }

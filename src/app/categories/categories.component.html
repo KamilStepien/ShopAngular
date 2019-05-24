@@ -1,3 +1,4 @@
-<p>
-  categories works!
-</p>
+<mat-form-field class="example-full-width">
+    <input matInput   placeholder="Categories" #input>
+</mat-form-field>
+  <button color="primary" mat-raised-button (click)="addElement(input.value)" >Add</button>

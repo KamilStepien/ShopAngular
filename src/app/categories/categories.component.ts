@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { database } from 'firebase';
+import { DbService } from '../db.service';
 
 @Component({
   selector: 'app-categories',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private db:DbService) { }
 
   ngOnInit() {
   }
 
+  addElement(text:string)
+  {
+    console.log(text);
+    this.db.addCategory({ name :text,  path: "/"+text});
+  }
 }

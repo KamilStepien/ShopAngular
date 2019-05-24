@@ -16,6 +16,11 @@ export class DbService {
   addUser(newUser: user) {
     this.db.collection('users').add(newUser);
   }
+  addCategory(newCategory: category) {
+    this.db.collection('kategorie').add(newCategory);
+   
+  }
+ 
 /*
   editFilm(film: Film) {
     this.db.doc('filmy/' + film.id).update(film);
