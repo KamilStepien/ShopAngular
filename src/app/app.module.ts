@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {MatListModule} from '@angular/material/list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
@@ -25,6 +27,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
 import { SearchComponent } from './search/search.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { NewProductComponent } from './new-product/new-product.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,7 @@ import { CategoriesComponent } from './categories/categories.component';
     CreateAccountComponent,
     SearchComponent,
     CategoriesComponent,
+    NewProductComponent,
     
   ],
   imports: [
@@ -54,7 +58,9 @@ import { CategoriesComponent } from './categories/categories.component';
     MatIconModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
+    MatListModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

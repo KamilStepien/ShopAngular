@@ -1,3 +1,6 @@
-<p>
-  product works!
-</p>
+<ul  *ngFor="let products of ProductDisplay | async ">
+    <li>{{products.name}} </li>  
+</ul>
+
+
+<button color="warn" mat-raised-button [routerLink]="['/dodajProdukt/', ProductId]" >Dodaj Produkt</button>  

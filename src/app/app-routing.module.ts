@@ -6,6 +6,7 @@ import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { NewProductComponent } from './new-product/new-product.component';
 
 const routes: Routes = [
  
@@ -13,19 +14,24 @@ const routes: Routes = [
   path:'koszyk',
   component : ShopingCartComponent
 },
-
-{
-  path:'rejestracja',
-  component : CreateAccountComponent
-},
 {
   path:'logowanie',
   component : LoginComponent
 },
 {
-   path: 'product/:id',
-   component : ProductComponent
+  path:'rejestracja',
+  component : CreateAccountComponent
 },
+{
+  path: 'dodajProdukt/:id',
+  component : NewProductComponent
+},
+
+{
+  path: 'kategorie/:id',
+  component : ProductComponent
+},
+
 
 { path: '**',
  component: PageNotFoundComponent 

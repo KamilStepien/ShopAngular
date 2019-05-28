@@ -1,4 +1,18 @@
+
+<ul  *ngFor="let category of CategoryDisplay | async ">
+                <li  [routerLink]="[category.path]" (click)="SetCurrentCategory(category.name)"  routerLinkActive="router-link-active"  >{{category.name}}    </li>  
+                <div class = "buttonBox">
+                                <button color="warn" mat-raised-button (click)="deleteElement(category.id)" >Usuń</button>  
+                                <button color="primary" mat-raised-button (click)="editElement(category.id)" >Edytuj</button>  
+                </div>       
+         
+        </ul>
+
 <mat-form-field class="example-full-width">
     <input matInput   placeholder="Categories" #input>
 </mat-form-field>
-  <button color="primary" mat-raised-button (click)="addElement(input.value)" >Add</button>
+<div class = "buttonBox">
+       
+        <button color="primary" mat-raised-button (click)="addElement(input.value)" >Dodaj</button>
+</div>
+ 

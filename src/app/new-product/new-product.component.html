@@ -1,0 +1,12 @@
+<form [formGroup]="newProduct">
+  
+  <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width">
+        <input matInput  formControlName="name" placeholder="Nazwa">
+      </mat-form-field></td>
+     
+    </tr></table>
+    <label for="file">File:</label>
+<input type="file" (change)="upload($event)" accept=".png,.jpg" />
+</form>
+<button color="primary" mat-raised-button (click)="addProduct()"  [disabled]=" newProduct.invalid ">Dodaj Produkt</button>
