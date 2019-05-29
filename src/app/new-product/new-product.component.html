@@ -2,11 +2,33 @@
   
   <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width">
-        <input matInput  formControlName="name" placeholder="Nazwa">
-      </mat-form-field></td>
-     
-    </tr></table>
-    <label for="file">File:</label>
-<input type="file" (change)="upload($event)" accept=".png,.jpg" />
+        <input matInput type="text" formControlName="name" placeholder="Nazwa">
+      </mat-form-field></td></tr>
+      <tr><td><mat-form-field>
+        <input matInput placeholder="Cena" formControlName="price" type="number" class="example-right-align">
+        <span matPrefix>$&nbsp;</span>
+        <span matSuffix>.00</span>
+      </mat-form-field></td></tr>
+      <tr><td><mat-form-field class="example-full-width">
+        <input matInput type="number" formControlName="quantity" placeholder="ilość">
+        <span matSuffix>sztuk</span>
+      </mat-form-field></td></tr>
+      <tr><td>
+    <mat-form-field class="example-full-width">
+      <input matInput #message maxlength="256" formControlName="description" placeholder="Message">
+      <mat-hint align="start"><strong>Opis</strong> </mat-hint>
+      <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+    </mat-form-field>
+    </td></tr>
+    
+  </table>
+    
 </form>
+
+    <label for="file">File:</label>
+    <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+    <div class="container" *ngIf="downloadURL | async; let url">
+      <img [src]="url" alt="Image from AngularFireStorage">
+    </div>`
+
 <button color="primary" mat-raised-button (click)="addProduct()"  [disabled]=" newProduct.invalid ">Dodaj Produkt</button>

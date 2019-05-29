@@ -28,6 +28,7 @@ import { AngularFireModule } from 'angularfire2';
 import { SearchComponent } from './search/search.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { NewProductComponent } from './new-product/new-product.component';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { NewProductComponent } from './new-product/new-product.component';
     AngularFireAuthModule,
     MatListModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
     MatSnackBarModule
   ],
   providers: [],

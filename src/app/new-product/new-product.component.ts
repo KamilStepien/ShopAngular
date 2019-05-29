@@ -1,8 +1,9 @@
+import { Data } from '@angular/router';
+import { Observable } from 'rxjs';
 import { FireStorageService } from './../fire-storage.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { DbService } from '../db.service';
-import { ProductService } from '../product.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,20 +13,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NewProductComponent implements OnInit {
 
-  ref:any;
-  afStorage:any;
-  task:any;
+ 
   newProduct:FormGroup
-  constructor(private fs:FireStorageService ,private fb: FormBuilder , private route: ActivatedRoute , private db:DbService, private prS : ProductService) { }
-
+  constructor(private fs:FireStorageService ,private fb: FormBuilder , private route: ActivatedRoute , private db:DbService) { }
+  downloadURL:Observable<any>;
+  ProductId:string;
 
   ngOnInit() {
     this.newProduct = this.fb.group({
       
       name: ['', Validators.required],  
-    
+      price: ['',Validators.required  ],  
+      quantity: ['',Validators.required ],  
+      description: ['',Validators.required],  
     });
-    console.log(this.fs.GetImage("z"))
+
+    this.route.params.subscribe( params => {this.ProductId =params.id}) ;
+    this.downloadURL = this.fs.GetImage();
    
   }
 
@@ -34,22 +38,16 @@ export class NewProductComponent implements OnInit {
     const Product: product = {
       
       ...this.newProduct.value,
-      category:this.prS.Curentcategory,
-      
+     category: this.ProductId,
+     dateOfCreation : new Date()
     };
     this.db.addProduct(Product);
   }
-  //upload  photos in to firebase
-  upload(event) {
-  // create a random id
-  const randomId = Math.random().toString(36).substring(2);
-  // create a reference to the storage bucket location
-  this.ref = this.afStorage.ref(randomId);
-  // the put method creates an AngularFireUploadTask
-  // and kicks off the upload
-  this.task = this.ref.put(event.target.files[0]);
+  
+  upload(event)
+  {
+      this.fs.SetImage(event);
   }
-
   
 }
 
