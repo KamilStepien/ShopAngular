@@ -1,5 +1,6 @@
+import { Observable } from 'rxjs/index';
 import { Injectable } from '@angular/core';
-import { AngularFireStorage } from 'angularfire2/storage';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +8,14 @@ import { AngularFireStorage } from 'angularfire2/storage';
 export class FireStorageService {
 
   constructor(private afStorage: AngularFireStorage) { }
-  ref:any;
-  task:any;
+  ref: AngularFireStorageReference;
+  task: AngularFireUploadTask;
 
    // get image 
-   GetImage()
+   GetImage(): Observable<any>
    {
-     return this.afStorage.ref('gs://shop-207de.appspot.com/images/5k5i0489u1m').getDownloadURL()
+    const ref = this.afStorage.ref('images/scllb8xm4lk');
+    return ref.getDownloadURL();
    }
 
    //set image 

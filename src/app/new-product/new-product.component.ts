@@ -30,7 +30,7 @@ export class NewProductComponent implements OnInit {
 
     this.route.params.subscribe( params => {this.ProductId =params.id}) ;
     this.downloadURL = this.fs.GetImage();
-   
+    console.log(  this.downloadURL);
   }
 
   addProduct()
@@ -49,6 +49,13 @@ export class NewProductComponent implements OnInit {
       this.fs.SetImage(event);
   }
   
+
+  addOtherPhotos()
+  {
+    console.log(document.querySelector("#addPicture"));
+    document.querySelector("#addPicture").innerHTML += '<label for="file">File:  '+
+    '<input type="file"  accept=".png,.jpg" />  </label>'
+  }
 }
 
 

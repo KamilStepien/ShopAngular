@@ -1,3 +1,5 @@
+
+
 <form [formGroup]="newProduct">
   
   <table class="example-full-width" cellspacing="0"><tr>
@@ -22,13 +24,17 @@
     </td></tr>
     
   </table>
-    
+   
 </form>
+<div id= "addPicture">
+<label for="file">File:
+<input type="file"  accept=".png,.jpg" />  </label>
+</div>
+<button color="primary" mat-raised-button (click) = "addOtherPhotos()" >Dodaj kolejne zdjecie</button><br>
 
-    <label for="file">File:</label>
-    <input type="file" (change)="upload($event)" accept=".png,.jpg" />
-    <div class="container" *ngIf="downloadURL | async; let url">
-      <img [src]="url" alt="Image from AngularFireStorage">
-    </div>`
+
+
 
 <button color="primary" mat-raised-button (click)="addProduct()"  [disabled]=" newProduct.invalid ">Dodaj Produkt</button>
+
+<img width="100px" [src]="downloadURL | async" />

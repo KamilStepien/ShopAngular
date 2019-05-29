@@ -20,6 +20,8 @@ export class DbService {
   addProduct(newProduct: product) {
     this.db.collection('product').add(newProduct);
   }
+  
+  
   addCategory(newCategory: category) {
     this.db.collection('kategorie').add(newCategory);
    
