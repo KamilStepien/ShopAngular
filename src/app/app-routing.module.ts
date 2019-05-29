@@ -1,3 +1,4 @@
+import { ContactComponent } from './contact/contact.component';
 import { ProductDiscriptionComponent } from './product-discription/product-discription.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { AppComponent } from './app.component';
@@ -18,6 +19,10 @@ const routes: Routes = [
 {
   path:'logowanie',
   component : LoginComponent
+},
+{
+  path:'kontakt',
+  component : ContactComponent
 },
 {
   path:'rejestracja',

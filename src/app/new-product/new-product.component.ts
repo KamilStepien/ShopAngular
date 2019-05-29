@@ -6,6 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { DbService } from '../db.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-new-product',
@@ -16,7 +17,7 @@ export class NewProductComponent implements OnInit {
 
   ArryImagePath: Array <string> = []
   newProduct:FormGroup
-  constructor(private fs:FireStorageService ,private fb: FormBuilder , private route: ActivatedRoute , private db:DbService) { }
+  constructor(private snack: MatSnackBar,private fs:FireStorageService ,private fb: FormBuilder , private route: ActivatedRoute , private db:DbService) { }
   downloadURL:Array<Observable<any>> ;
   ProductId:string;
   NumberOfImage = 0;
@@ -46,6 +47,9 @@ export class NewProductComponent implements OnInit {
      dateOfCreation : new Date()
     };
     this.db.addProduct(Product);
+    this.snack.open('Dodano Produkt ',  Product.name, {
+      duration: 2000,
+    });
   }
   
   upload(event)

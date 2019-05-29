@@ -32,6 +32,7 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card';
 import { ProductDiscriptionComponent } from './product-discription/product-discription.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { ProductDiscriptionComponent } from './product-discription/product-discr
     CategoriesComponent,
     NewProductComponent,
     ProductDiscriptionComponent,
+    ContactComponent,
  
     
   ],
