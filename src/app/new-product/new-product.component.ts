@@ -1,5 +1,6 @@
 import { Data } from '@angular/router';
-import { Observable } from 'rxjs';
+import { filter, finalize, map } from 'rxjs/operators';
+import { Observable, identity } from 'rxjs';
 import { FireStorageService } from './../fire-storage.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -13,24 +14,27 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class NewProductComponent implements OnInit {
 
- 
+  ArryImagePath: Array <string> = []
   newProduct:FormGroup
   constructor(private fs:FireStorageService ,private fb: FormBuilder , private route: ActivatedRoute , private db:DbService) { }
-  downloadURL:Observable<any>;
+  downloadURL:Array<Observable<any>> ;
   ProductId:string;
+  NumberOfImage = 0;
+
 
   ngOnInit() {
     this.newProduct = this.fb.group({
       
       name: ['', Validators.required],  
-      price: ['',Validators.required  ],  
+      price: ['',Validators.required],  
       quantity: ['',Validators.required ],  
       description: ['',Validators.required],  
     });
 
     this.route.params.subscribe( params => {this.ProductId =params.id}) ;
-    this.downloadURL = this.fs.GetImage();
-    console.log(  this.downloadURL);
+    
+   // this.downloadURL = this.fs.GetImage(this.CurrentIdImage);
+    
   }
 
   addProduct()
@@ -46,16 +50,34 @@ export class NewProductComponent implements OnInit {
   
   upload(event)
   {
-      this.fs.SetImage(event);
+    this.fs.SetImage(event,"10").pipe( finalize(()=> {  console.log("elm");this.downloadURL[this.NumberOfImage] = this.fs.GetImage("10") })
+   ).subscribe();
+   this.NumberOfImage ++;  
+    //console.log(path);
+   // this.DisplayImage(path);
+    //this.inputCopyArry(path);
+    document.querySelector("#addPicture").querySelector("input").value =null;
   }
-  
 
-  addOtherPhotos()
+  inputCopyArry(path:string )
   {
-    console.log(document.querySelector("#addPicture"));
-    document.querySelector("#addPicture").innerHTML += '<label for="file">File:  '+
-    '<input type="file"  accept=".png,.jpg" />  </label>'
+    if(path != "")
+    {
+      console.log("rd");
+       this.fs.GetImage(path).pipe(finalize(()=> { this.DisplayImage() })).subscribe();
+      //this.ArryImagePath[this.NumberOfImage] = path;
+      //this.ArryImagePath.forEach(ele => console.log(ele))
+     
+    }
   }
+
+  DisplayImage()
+  {
+   
+    document.querySelector("#image").innerHTML += '<img width="100px" [src]= "downloadURL['+ +']  | async" />';
+  }
+
+
 }
 
 

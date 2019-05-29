@@ -1,0 +1,37 @@
+.productsBox
+{
+ display: flex;
+flex-direction: row;
+width: 100%;
+flex-wrap: wrap;
+justify-content: center;
+}
+.titleProduct
+{
+display: flex;
+justify-content: center;
+font-weight: 800;
+
+}
+.divPrice
+{
+    font-weight: 500;
+    font-size: 15px;
+}
+.productDiv
+{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    max-width: 150px;
+    margin: 4px;
+    border: 1px solid #cccccc;
+    height: min-content;
+}
+
+
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }

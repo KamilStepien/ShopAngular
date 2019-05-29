@@ -29,6 +29,10 @@ import { SearchComponent } from './search/search.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { AngularFireStorageModule } from 'angularfire2/storage';
+import {MatTableModule} from '@angular/material/table';
+import {MatCardModule} from '@angular/material/card';
+import { ProductDiscriptionComponent } from './product-discription/product-discription.component';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +46,8 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
     SearchComponent,
     CategoriesComponent,
     NewProductComponent,
+    ProductDiscriptionComponent,
+ 
     
   ],
   imports: [
@@ -62,7 +68,9 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
     MatListModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

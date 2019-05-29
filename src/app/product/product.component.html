@@ -1,6 +1,27 @@
-<ul  *ngFor="let products of ProductDisplay | async ">
-    <li>{{products.name}} </li>  
-</ul>
+<div class="productsBox">
+    <div class="productDiv" [routerLink]="[products.id]" *ngFor="let products of ProductDisplay | async ">
+       
+       
+                
+                <mat-card-header>
+                  
+                  <mat-card-title class="titleProduct"> {{products.name}} </mat-card-title>
 
+                </mat-card-header>
+                <img mat-card-image width="150px" src="https://img.pakamera.net/i1/1/486/grafiki-i-ilustracje-12156277_2218152486.jpg" alt="Brak obrazka">
+                <mat-card-content>
+                  <p>
+                        {{products.description}}
+                  </p>
+                </mat-card-content>
+                  <div class="divPrice">
+                      Cena : {{products.price}} zł
+                  </div>
+                <mat-card-actions class= "buttonBox">
+                    <button color="warn" mat-raised-button (click)="deleteElement(products.id)" >Usuń</button>  
+                    <button color="primary" mat-raised-button (click)="editElement(products.id)" >Edytuj</button>  
+                </mat-card-actions>
+    </div>
+</div>
 
 <button color="warn" mat-raised-button [routerLink]="['/dodajProdukt/', ProductId]" >Dodaj Produkt</button>  
