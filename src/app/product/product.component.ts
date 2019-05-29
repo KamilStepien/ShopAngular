@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { map, filter } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -13,9 +14,10 @@ import { map, filter } from 'rxjs/operators';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(  private route: ActivatedRoute ,private db: DbService) { }
+  constructor(  private route: ActivatedRoute ,private db: DbService,private snack: MatSnackBar) { }
   ProductDisplay:Observable<any>;
   ProductId:string; 
+  
   //paramMap.get('id');
   ngOnInit() {
     this.ProductDisplay = this.db.getProducts()
@@ -42,7 +44,15 @@ export class ProductComponent implements OnInit {
           
           )
       );} );
-}
+  }
+  deleteElement(idProduct:string)
+  {
+    //this.db.getCategory(idCategory).subscribe(value => console.log(value.docs))
+    this.snack.open('Usunieto Produkt ',  '', {
+      duration: 2000,
+    });
+    this.db.deleteProduct(idProduct);
+  }
  
   }
   

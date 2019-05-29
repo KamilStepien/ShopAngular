@@ -1,5 +1,5 @@
 <div class="productsBox">
-    <div class="productDiv" [routerLink]="[products.id]" *ngFor="let products of ProductDisplay | async ">
+    <div class="productDiv" [routerLink]="['/produkt',products.name]" *ngFor="let products of ProductDisplay | async ">
        
        
                 
@@ -8,7 +8,7 @@
                   <mat-card-title class="titleProduct"> {{products.name}} </mat-card-title>
 
                 </mat-card-header>
-                <img mat-card-image width="150px" src="https://img.pakamera.net/i1/1/486/grafiki-i-ilustracje-12156277_2218152486.jpg" alt="Brak obrazka">
+                <img mat-card-image width="120px" src="https://static4.mediaexpert.pl/temp/thumbs-new/2/products/391/aparat-canon-eos-1300d-iii-18-55mm-plus-obiektyw-50mm_762391_2718586_350x350w50.jpg" alt="Brak obrazka">
                 <mat-card-content>
                   <p>
                         {{products.description}}
