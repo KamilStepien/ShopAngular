@@ -3,9 +3,6 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { DbService } from '../db.service';
 
 
-
-
-
 @Component({
   selector: 'app-create-account',
   templateUrl: './create-account.component.html',
