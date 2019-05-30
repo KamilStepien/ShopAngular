@@ -10,13 +10,17 @@ li{
 }
 ul
 {
-    padding-left: 5%;
-    margin: 10%;
+    padding-left: 10px;
+    margin: 10px;
 }
 
 .buttonBox
 {
    display: flex;
-   justify-content: space-around;
+   justify-content: space-between;
    align-items: center; 
+}
+.buttonBox button
+{
+    padding: 1% 5%;
 }

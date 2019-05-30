@@ -16,13 +16,13 @@ export class ProductComponent implements OnInit {
 
   constructor(  private route: ActivatedRoute ,private db: DbService,private snack: MatSnackBar) { }
   ProductDisplay:Observable<any>;
-  ProductId:string; 
+  Category:string; 
   
   //paramMap.get('id');
   ngOnInit() {
     this.ProductDisplay = this.db.getProducts()
     .pipe(
-      map( values => values.filter(a => a.payload.doc.data().category == this.ProductId)
+      map( values => values.filter(a => a.payload.doc.data().category == this.Category)
       .map(a => {
         const data = a.payload.doc.data();
         const id = a.payload.doc.id;
@@ -32,10 +32,10 @@ export class ProductComponent implements OnInit {
         )
     );
 
-    this.route.params.subscribe( params => {this.ProductId =params.id ;
+    this.route.params.subscribe( params => {this.Category =params.id ;
       this.ProductDisplay = this.db.getProducts()
       .pipe(
-        map( values => values.filter(a => a.payload.doc.data().category == this.ProductId)
+        map( values => values.filter(a => a.payload.doc.data().category == this.Category)
         .map(a => {
           const data = a.payload.doc.data();
           const id = a.payload.doc.id;

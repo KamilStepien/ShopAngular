@@ -1,3 +1,42 @@
-<p>
-  product-discription works!
-</p>
+<div  *ngIf="product">
+<div class="main">
+
+
+<div class="row" id="rowLeft">
+ 
+  <img mat-card-image width="90%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Three_IC_circuit_chips.JPG/220px-Three_IC_circuit_chips.JPG" alt="Brak obrazka">
+<div id="imageBox">
+    <img mat-card-image width="50px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Three_IC_circuit_chips.JPG/220px-Three_IC_circuit_chips.JPG" alt="Brak obrazka">
+    <img mat-card-image width="50px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Three_IC_circuit_chips.JPG/220px-Three_IC_circuit_chips.JPG" alt="Brak obrazka">
+    <img mat-card-image width="50px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Three_IC_circuit_chips.JPG/220px-Three_IC_circuit_chips.JPG" alt="Brak obrazka">
+
+</div>
+</div>
+<div class="row" id="rowRight">
+  <div class ="name"><p>{{product.name}}</p> </div>
+  <div class ="kod"><p>Kod: {{product.name}}</p> </div>
+  <div class ="producent"><p>Producent: {{product.name}}</p> </div>
+  <div class ="box">
+      <div class= "quantity">
+          Ilość: <input   type="number"  value="1"> sztuk
+      </div>
+      <div class ="price"><p>{{product.price}} zł</p> </div>
+      <button color="primary" mat-raised-button >Dodaj  do koszyka</button>
+      <div class="additionalInformation">
+          <p><i class="fas fa-shipping-fast"></i><strong>Dostawa</strong>: Poczta, Kurier lub odbiór osobisty w Warszawie</p>
+          <p><i class="fas fa-lock"></i> Solidnie zapakowane i <strong>ubezpieczone przesyłki</strong></p>
+          <p><i class="fas fa-sync"></i>Dla Konsumentów: <strong>14 dni na zwrot</strong> </p>
+          <p><i class="fas fa-gift"></i><strong>BONUSY</strong>  do zamówień powyżej 100zł!</p>
+        
+      </div>
+  </div>
+
+  
+
+</div>
+</div>
+<div class ="description">
+<strong>Opis</strong><br>
+<p>{{product.description}} </p>
+</div>
+</div>
