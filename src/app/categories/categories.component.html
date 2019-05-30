@@ -1,3 +1,6 @@
+<div id="categoryTopicDiv">
+<p>Kategorie</p>
+</div>
 
 <ul  *ngFor="let category of CategoryDisplay | async ">
                 <li  [routerLink]="[category.path]" (click)="SetCurrentCategory(category.name)"  routerLinkActive="router-link-active"  >{{category.name}}    </li>  
