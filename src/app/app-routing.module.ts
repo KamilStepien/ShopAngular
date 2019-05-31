@@ -1,3 +1,4 @@
+import { LastAddedProductComponent } from './last-added-product/last-added-product.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductDiscriptionComponent } from './product-discription/product-discription.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
@@ -15,6 +16,11 @@ const routes: Routes = [
   {
   path:'koszyk',
   component : ShopingCartComponent
+},
+
+{
+  path:'nowosci',
+  component : LastAddedProductComponent
 },
 {
   path:'logowanie',

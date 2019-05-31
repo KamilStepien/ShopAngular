@@ -5,7 +5,7 @@
 <ul  *ngFor="let category of CategoryDisplay | async ">
                 <li  [routerLink]="[category.path]"   routerLinkActive="router-link-active"  >{{category.name}}    </li>  
                 <div class = "buttonBox">
-                                <button color="warn" mat-raised-button (click)="deleteElement(category.id)" >Usuń</button>  
+                                <button color="warn" [routerLink]="['/nowosci']" mat-raised-button (click)="deleteElement(category.id,category.name)" >Usuń</button>  
                                 <button color="primary" mat-raised-button (click)="editElement(category.id)" >Edytuj</button>  
                 </div>       
          
@@ -16,6 +16,6 @@
 </mat-form-field>
 <div class = "buttonBox">
        
-        <button color="primary" mat-raised-button (click)="addElement(input.value)" >Dodaj</button>
+        <button color="primary"  mat-raised-button (click)="addElement(input.value)" >Dodaj</button>
 </div>
  

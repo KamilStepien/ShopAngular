@@ -27,3 +27,56 @@ div
     justify-content: center;
     
 }
+
+.productsBox 
+{
+ display: flex;
+flex-direction: row;
+width: 100%;
+flex-wrap: wrap;
+justify-content: center;
+}
+.titleProduct
+{
+display: flex;
+justify-content: center;
+font-weight: 800;
+
+}
+.divPrice
+{
+    font-weight: 600;
+    font-size: 15px;
+
+}
+.productDiv
+{
+    padding: 1% 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ 
+    margin: 4px;
+    border: 1px solid #cccccc;
+    height: min-content;
+    min-width: 175px;
+    width: 15%;
+}
+.buttonBox
+{
+    display: flex;
+    justify-content: space-around;
+}
+.buttonBox button
+{
+    margin: 5%;
+    display: flex;
+    justify-content:center;
+}
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    
+   
+  }

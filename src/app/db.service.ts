@@ -2,6 +2,7 @@ import { database } from 'firebase';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +39,17 @@ export class DbService {
   deleteProduct(id: string) {
     this.db.doc('product/' + id).delete();
   }
+  deleteAllProduct(name: string) {
+    
+    this.db.collection('product').get().subscribe(value => {value.docs.forEach(doc => {
+      if(doc.data().category==name)
+      {
+       this.deleteProduct(doc.id);
+      }
+    });
+  })
+  }
+
   getProducts():Observable<any> {
     return this.db.collection('product').snapshotChanges();
   }

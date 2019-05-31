@@ -41,13 +41,15 @@ export class CategoriesComponent implements OnInit {
     this.db.addCategory({ name :text,  path: "/kategorie/"+text});
   }
 
-  deleteElement(idCategory:string)
+  deleteElement(categoryId:string , categoryName: string )
   {
-    //this.db.getCategory(idCategory).subscribe(value => console.log(value.docs))
-    this.snack.open('Usunieto kategorie ',  '', {
+    console.log(categoryId +" "+categoryName)
+     this.snack.open('Usunieto kategorie ',  '', {
       duration: 2000,
     });
-    this.db.deleteCategory(idCategory);
+    this.db.deleteCategory(categoryId);
+    this.db.deleteAllProduct(categoryName);
+
   }
  
 }
