@@ -33,10 +33,13 @@ const routes: Routes = [
   component : NewProductComponent
 },
 {
+  path: 'szukaj/:name',
+  component : ProductComponent
+},
+{
   path: 'produkt/:id',
   component : ProductDiscriptionComponent
 },
-
 {
   path: 'kategorie/:id',
   component : ProductComponent

@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/index';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DbService } from '../db.service';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-discription',
@@ -15,7 +16,7 @@ export class ProductDiscriptionComponent implements OnInit {
   product:Observable<any>;
 
   
-  constructor(private route:ActivatedRoute, private db:DbService) { }
+  constructor(private route:ActivatedRoute, private db:DbService , private ps:ProductService) { }
 
   ngOnInit() {
    
@@ -38,6 +39,13 @@ export class ProductDiscriptionComponent implements OnInit {
     }
   }
 
-
+  addToShopingCard(addproduct:product,quantity:number)
+  {
+    const User: productWithQuantityBuy = {
+      quantityBuy:quantity,
+     ...addproduct
+    };
+    this.ps.addProductToCart(User);
+  }
 
 }

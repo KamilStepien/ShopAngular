@@ -3,7 +3,7 @@
 </div>
 
 <ul  *ngFor="let category of CategoryDisplay | async ">
-                <li  [routerLink]="[category.path]" (click)="SetCurrentCategory(category.name)"  routerLinkActive="router-link-active"  >{{category.name}}    </li>  
+                <li  [routerLink]="[category.path]"   routerLinkActive="router-link-active"  >{{category.name}}    </li>  
                 <div class = "buttonBox">
                                 <button color="warn" mat-raised-button (click)="deleteElement(category.id)" >Usuń</button>  
                                 <button color="primary" mat-raised-button (click)="editElement(category.id)" >Edytuj</button>  

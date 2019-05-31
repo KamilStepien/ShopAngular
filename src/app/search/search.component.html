@@ -4,6 +4,6 @@
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Wyszukaj" #searchInput > 
     </mat-form-field>
-    <button (click) = "search(searchInput.value)" mat-raised-button color="warn">Szukaj</button>
+    <button [routerLink]="['szukaj',searchInput.value]"  mat-raised-button color="warn">Szukaj</button>
 
 </div>

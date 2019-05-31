@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { DbService } from '../db.service';
 
 @Component({
   selector: 'app-search',
@@ -9,15 +10,11 @@ import { FormGroup } from '@angular/forms';
 export class SearchComponent implements OnInit {
 
   text:string;
-  constructor() { }
+  constructor(private db:DbService) { }
 
   ngOnInit() {
-  }
 
 
-  search(input:string)
-  {
-    this.text = input;
-    console.log(input);
+    
   }
 }

@@ -4,7 +4,7 @@ import { database } from 'firebase';
 import { DbService } from '../db.service';
 import { map, filter, first } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
-import { ProductService } from '../product.service';
+
 
 
 
@@ -21,7 +21,7 @@ export class CategoriesComponent implements OnInit {
 
   constructor(private db:DbService,
     private snack: MatSnackBar,
-    private prS : ProductService) { }
+   ) { }
 
   ngOnInit() {
     this.CategoryDisplay = this.db.getDB("kategorie")
@@ -49,9 +49,5 @@ export class CategoriesComponent implements OnInit {
     });
     this.db.deleteCategory(idCategory);
   }
-  SetCurrentCategory(name:String)
-  {
-    this.prS.Curentcategory = name;
-   
-  }
+ 
 }
