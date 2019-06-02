@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProductService {
 
+  localStorageId = "dwqe3131da ";
   shopList  =[];
   //czy w tablicy shopList jest juz ten produkt
   isProduct:boolean;
@@ -15,6 +16,7 @@ export class ProductService {
 
   addProductToCart(Product:productWithQuantityBuy)
   {
+    localStorage.clear();
     this.isProduct =true;
     this.shopList.forEach(elm => 
       {
@@ -27,18 +29,36 @@ export class ProductService {
       if(this.isProduct)
       {
         this.shopList[this.shopList.length] = Product;
-        console.log(Product)
+      
       }
     
- 
+      localStorage.setItem(this.localStorageId ,JSON.stringify(this.shopList) )
     
   }
 
   getProductList():Array<productWithQuantityBuy>
   {
+    this.shopList = JSON.parse(localStorage.getItem(this.localStorageId)) || [];
+    
     return this.shopList
   }
  
+  deleteProductFromCart(id:string)
+  {
+    
+   let tmp =[];
+   this.shopList.forEach(elm => 
+    {
+      if(elm.id !=id)
+      {
+        tmp[tmp.length] = elm;
+      }
+    })
+    
+    this.shopList = tmp;
+    localStorage.setItem(this.localStorageId ,JSON.stringify(this.shopList) )
+  
+  }
 
 
   

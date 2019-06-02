@@ -1,7 +1,9 @@
 import { Observable } from 'rxjs/index';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
-
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import { forEach } from '@angular/router/src/utils/collection';
 
 
 @Component({
@@ -12,12 +14,21 @@ import { ProductService } from '../product.service';
 export class ShopingCartComponent implements OnInit {
 
   constructor(private ps:ProductService) { }
+ 
 
-  shopList= [];
+  dataSource; 
+  displayedColumns: string[] = ['id','name','category', 'price', 'quantityBuy' ,'sum','buttons'];
  
   ngOnInit() 
   {
-    this.shopList = this.ps.getProductList()
+  
+    this.dataSource = new MatTableDataSource<productWithQuantityBuy>(this.ps.getProductList());
+    
   }
+  deleteProduct(id:string)
+  {
+    this.ps.deleteProductFromCart(id);
+    this.dataSource = new MatTableDataSource<productWithQuantityBuy>(this.ps.getProductList());
 
+  }
 }
