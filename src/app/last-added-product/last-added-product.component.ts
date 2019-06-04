@@ -14,7 +14,7 @@ export class LastAddedProductComponent implements OnInit {
 
   constructor(private db: DbService) { }
   ProductDisplay: Observable<any>;
-  Category:string ="adadad";
+
   //dzień w milisekundach
   msInADay = 24 * 60 * 60 * 1000;
   //aktualna data

@@ -1,3 +1,4 @@
+import { DiscountComponent } from './discount/discount.component';
 import { LastAddedProductComponent } from './last-added-product/last-added-product.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProductDiscriptionComponent } from './product-discription/product-discription.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
 {
   path:'nowosci',
   component : LastAddedProductComponent
+},
+{
+  path:'wyprzedaz',
+  component : DiscountComponent
 },
 {
   path:'logowanie',

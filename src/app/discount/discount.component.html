@@ -1,7 +1,7 @@
 <div class="productsBox">
     <div class="productDiv" [routerLink]="['/produkt',products.id]" *ngFor="let products of ProductDisplay | async ">
        
-                <div class = "newbox"  >
+                <div class = "newbox" *ngIf="products.dateOfCreation > CurrentDataMiliSeconds ">
                   <p>New</p>
                 </div>
                

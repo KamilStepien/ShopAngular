@@ -34,6 +34,7 @@ import {MatCardModule} from '@angular/material/card';
 import { ProductDiscriptionComponent } from './product-discription/product-discription.component';
 import { ContactComponent } from './contact/contact.component';
 import { LastAddedProductComponent } from './last-added-product/last-added-product.component';
+import { DiscountComponent } from './discount/discount.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { LastAddedProductComponent } from './last-added-product/last-added-produ
     ProductDiscriptionComponent,
     ContactComponent,
     LastAddedProductComponent,
+    DiscountComponent,
  
     
   ],
