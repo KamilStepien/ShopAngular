@@ -1,5 +1,5 @@
 import { Data } from '@angular/router';
-import { filter, finalize, map } from 'rxjs/operators';
+import { filter, finalize, map, first } from 'rxjs/operators';
 import { Observable, identity } from 'rxjs';
 import { FireStorageService } from './../fire-storage.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -20,10 +20,15 @@ export class NewProductComponent implements OnInit {
   constructor(private snack: MatSnackBar,private fs:FireStorageService ,private fb: FormBuilder , private route: ActivatedRoute , private db:DbService) { }
   downloadURL:Array<Observable<any>> ;
   ProductId:string;
+  ProductCategory:string;
   NumberOfImage = 0;
-
+  //czy edytujemy jakiś obiekt
+  isEdit :boolean;
 
   ngOnInit() {
+
+   
+
     this.newProduct = this.fb.group({
       
       name: ['', Validators.required],  
@@ -32,8 +37,33 @@ export class NewProductComponent implements OnInit {
       description: ['',Validators.required],  
     });
 
-    this.route.params.subscribe( params => {this.ProductId =params.id}) ;
+    this.route.params.subscribe( params => {
+        if (params.category) {
+          this.ProductCategory =params.category;
+
+          this.isEdit =false;
+        }
+        if (params.id) {
+          this.ProductId =params.id
+          this.isEdit =true;
+        }
     
+    }) ;
+    if (this.ProductId) {
+      this.db.getProduct(this.ProductId)
+        .pipe(
+          first(),
+          map(product => ({
+            ...product.data(),
+            id: product.id
+          }))
+        )
+        .subscribe( product => {
+          this.newProduct.patchValue(product);
+          console.log(product);
+        });
+    }
+   
    // this.downloadURL = this.fs.GetImage(this.CurrentIdImage);
     
   }
@@ -43,13 +73,32 @@ export class NewProductComponent implements OnInit {
     const Product: product = {
       
       ...this.newProduct.value,
-     category: this.ProductId,
+     category: this.ProductCategory,
      dateOfCreation : new Date()
     };
-    this.db.addProduct(Product);
-    this.snack.open('Dodano Produkt ',  Product.name, {
-      duration: 2000,
-    });
+    
+
+      if(this.isEdit)
+      {
+        
+        this.db.editProduct(this.ProductId,Product);
+        this.snack.open('Edytowano Produkt ',  Product.name, {
+          duration: 2000,
+        });
+      }
+      else{
+        this.db.addProduct(Product);
+        this.snack.open('Dodano Produkt ',  Product.name, {
+          duration: 2000,
+        });
+      }
+      
+    
+   
+      //this.db.editProduct(this.currentProduct.id,Product);
+    
+    
+  
   }
   
   upload(event)

@@ -34,7 +34,7 @@ export class ProductComponent implements OnInit {
       );
 
     this.route.params.subscribe(params => {
-      ;
+      
 
       if (params.name) {
         this.Name = params.name;
@@ -78,6 +78,8 @@ export class ProductComponent implements OnInit {
     });
     this.db.deleteProduct(idProduct);
   }
+
+  editElement
 
 }
 

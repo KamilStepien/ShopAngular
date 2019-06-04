@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProductService {
 
-  localStorageId = "dwqe3131da ";
+  localStorageId = "shopingCart ";
   shopList  =[];
   //czy w tablicy shopList jest juz ten produkt
   isProduct:boolean;

@@ -28,11 +28,13 @@ export class DbService {
    
   }
 
-  /*
-  editCategory(id: string) {
-    this.db.doc('kategorie/' + id).update(film);
+  editProduct(id: string , newProduct:product) {
+   
+    this.db.doc('product/' + id).update(newProduct);
   }
-  */
+ 
+
+  
   deleteCategory(id: string) {
     this.db.doc('kategorie/' + id).delete();
   }

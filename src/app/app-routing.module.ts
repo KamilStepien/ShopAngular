@@ -26,6 +26,7 @@ const routes: Routes = [
   path:'logowanie',
   component : LoginComponent
 },
+
 {
   path:'kontakt',
   component : ContactComponent
@@ -35,7 +36,11 @@ const routes: Routes = [
   component : CreateAccountComponent
 },
 {
-  path: 'dodajProdukt/:id',
+  path: 'dodajProdukt/:category',
+  component : NewProductComponent
+},
+{
+  path:'edytuj/:category/:id',
   component : NewProductComponent
 },
 {

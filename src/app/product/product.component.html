@@ -19,7 +19,7 @@
                   </div>
                 <mat-card-actions class= "buttonBox">
                     <button color="warn" mat-raised-button (click)="deleteElement(products.id)" >Usuń</button>  
-                    <button color="primary" mat-raised-button (click)="editElement(products.id)" >Edytuj</button>  
+                    <button color="primary" mat-raised-button [routerLink]="['/edytuj/',Category, products.id]" >Edytuj</button>  
                 </mat-card-actions>
     </div>
 </div>
