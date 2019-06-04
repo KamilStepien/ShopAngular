@@ -19,9 +19,9 @@
                   </div>
                 <mat-card-actions class= "buttonBox">
                     <button color="warn" mat-raised-button (click)="deleteElement(products.id)" >Usuń</button>  
-                    <button color="primary" mat-raised-button [routerLink]="['/edytuj/',Category, products.id]" >Edytuj</button>  
+                    <button color="primary" mat-raised-button [routerLink]="['/edytuj/',CategoryId, products.id]" >Edytuj</button>  
                 </mat-card-actions>
     </div>
 </div>
 
-<button color="warn" mat-raised-button [routerLink]="['/dodajProdukt/', Category]" >Dodaj Produkt</button>  
+<button color="warn" mat-raised-button [routerLink]="['/dodajProdukt/', CategoryId]" >Dodaj Produkt</button>  

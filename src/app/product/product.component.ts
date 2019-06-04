@@ -16,14 +16,14 @@ export class ProductComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private db: DbService, private snack: MatSnackBar) { }
   ProductDisplay: Observable<any>;
-  Category: string;
+  CategoryId: string;
   Name: string;
 
   //paramMap.get('id');
   ngOnInit() {
     this.ProductDisplay = this.db.getProducts()
       .pipe(
-        map(values => values.filter(a => a.payload.doc.data().category == this.Category)
+        map(values => values.filter(a => a.payload.doc.data().category == this.CategoryId)
           .map(a => {
             const data = a.payload.doc.data();
             const id = a.payload.doc.id;
@@ -53,11 +53,11 @@ export class ProductComponent implements OnInit {
       }
 
       if (params.id) {
-        this.Category = params.id;
+        this.CategoryId = params.id;
         console.log(params);
         this.ProductDisplay = this.db.getProducts()
           .pipe(
-            map(values => values.filter(a => a.payload.doc.data().category == this.Category)
+            map(values => values.filter(a => a.payload.doc.data().categoryId == this.CategoryId)
               .map(a => {
                 const data = a.payload.doc.data();
                 const id = a.payload.doc.id;

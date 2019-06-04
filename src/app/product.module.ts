@@ -2,7 +2,7 @@
 class product
 {
     id:string;
-    category:string;
+    categoryId:string;
     name:string;
     path:string;
     price:number;
@@ -16,7 +16,7 @@ class productWithQuantityBuy
 {
     id:string;
     quantityBuy:number;
-    category:string;
+    categoryId:string;
     name:string;
     path:string;
     price:number;

@@ -18,12 +18,24 @@ ul
     margin: 10px;
 }
 
-.buttonBox
+.buttonBox 
 {
    display: flex;
    justify-content: space-around;
    align-items: center; 
 }
+.editBox
+{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.editBox input
+{
+    margin-bottom: 5px;
+    
+}
+
 .buttonBox button
 {
     padding: 1% 5%;

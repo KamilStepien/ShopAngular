@@ -32,6 +32,11 @@ export class DbService {
    
     this.db.doc('product/' + id).update(newProduct);
   }
+
+  editCategory(id: string , newCategory:category) {
+   
+    this.db.doc('kategorie/' + id).update(newCategory);
+  }
  
 
   

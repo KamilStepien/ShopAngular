@@ -17,7 +17,8 @@ import { MatSnackBar } from '@angular/material';
 export class CategoriesComponent implements OnInit {
 
   CategoryDisplay :Observable<any>;
-
+  //czy wyświetlić edycje kategori  
+  isEditCategor= false;
 
   constructor(private db:DbService,
     private snack: MatSnackBar,
@@ -38,18 +39,27 @@ export class CategoriesComponent implements OnInit {
     this.snack.open('Dodano kategorie '+ text, '', {
       duration: 2000,
     });
-    this.db.addCategory({ name :text,  path: "/kategorie/"+text});
+    this.db.addCategory({name :text});
   }
 
   deleteElement(categoryId:string , categoryName: string )
   {
-    console.log(categoryId +" "+categoryName)
-     this.snack.open('Usunieto kategorie ',  '', {
+    
+     this.snack.open('Usunieto kategorie '+categoryName,  '', {
       duration: 2000,
     });
     this.db.deleteCategory(categoryId);
     this.db.deleteAllProduct(categoryName);
 
   }
- 
+  
+  editName(categoryId:string , newName: string ,categoryName:string)
+  {
+    
+     this.snack.open('Edytowano nazwe kategori z  '+categoryName + " na " +newName,   '', {
+      duration: 2000,
+    });
+
+    this.db.editCategory(categoryId , { name :newName})
+  }
 }

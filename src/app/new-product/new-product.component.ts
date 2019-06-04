@@ -20,7 +20,7 @@ export class NewProductComponent implements OnInit {
   constructor(private snack: MatSnackBar,private fs:FireStorageService ,private fb: FormBuilder , private route: ActivatedRoute , private db:DbService) { }
   downloadURL:Array<Observable<any>> ;
   ProductId:string;
-  ProductCategory:string;
+  CategoryId:string;
   NumberOfImage = 0;
   //czy edytujemy jakiś obiekt
   isEdit :boolean;
@@ -39,7 +39,7 @@ export class NewProductComponent implements OnInit {
 
     this.route.params.subscribe( params => {
         if (params.category) {
-          this.ProductCategory =params.category;
+          this.CategoryId =params.category;
 
           this.isEdit =false;
         }
@@ -73,7 +73,7 @@ export class NewProductComponent implements OnInit {
     const Product: product = {
       
       ...this.newProduct.value,
-     category: this.ProductCategory,
+      categoryId: this.CategoryId,
      dateOfCreation : new Date()
     };
     
