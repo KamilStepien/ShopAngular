@@ -70,4 +70,46 @@ font-weight: 800;
     background-size: cover;
     
    
-  }
+}
+.newbox
+{
+
+    background-color: #f44336;
+    z-index: 100;
+    position: absolute;
+    right:3%;
+    top:1%;
+    border-radius: 10%;
+}
+.newbox p 
+{
+    padding: 4px 10px;
+    margin: 0;
+    color:white;
+    font-weight: 800;
+
+}
+
+.productDiv
+{
+    position: relative;
+}
+
+.NormarPrice p , .ReducionPrice p 
+{
+    margin-top: 0;
+}
+
+.ReducionPrice small 
+{
+    font-size: 14px;
+    text-decoration: line-through;
+     
+}
+
+.ReducionPrice strong
+{
+    font-size: 24px;
+    color: rgb(219, 28, 28);
+   
+}

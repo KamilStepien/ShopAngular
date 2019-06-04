@@ -15,6 +15,7 @@
         <input matInput type="number" formControlName="quantity" placeholder="ilość">
         <span matSuffix>sztuk</span>
       </mat-form-field></td></tr>
+      
       <tr><td>
     <mat-form-field class="example-full-width">
       <input matInput #message maxlength="256" formControlName="description" placeholder="Message">
@@ -22,8 +23,17 @@
       <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
     </mat-form-field>
     </td></tr>
-    
-  </table>
+    <tr><td>
+    <mat-checkbox #inputcheckbox >Dodaj przecene</mat-checkbox>
+    </td></tr>
+    <tr><td>
+        <tr *ngIf="inputcheckbox.checked" ><td><mat-form-field >
+            <input matInput placeholder="Nowa Cena" formControlName="newPrice" type="number" class="example-right-align">
+            <span matPrefix>$&nbsp;</span>
+            <span matSuffix>.00</span>
+          </mat-form-field></td></tr>
+  </td></tr>
+    </table>
    
 </form>
 

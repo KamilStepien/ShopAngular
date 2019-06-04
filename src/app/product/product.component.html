@@ -1,22 +1,31 @@
 <div class="productsBox">
     <div class="productDiv" [routerLink]="['/produkt',products.id]" *ngFor="let products of ProductDisplay | async ">
        
-       
+                <div class = "newbox" *ngIf="products.dateOfCreation > CurrentDataMiliSeconds ">
+                  <p>New</p>
+                </div>
+               
                 
                 <mat-card-header>
                   
                   <mat-card-title class="titleProduct"> {{products.name}} </mat-card-title>
 
                 </mat-card-header>
+                
                 <img mat-card-image width="100%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Three_IC_circuit_chips.JPG/220px-Three_IC_circuit_chips.JPG" alt="Brak obrazka">
                 <mat-card-content>
                   <p>
                         Opis: {{products.description}}
                   </p>
                 </mat-card-content>
-                  <div class="divPrice">
-                      Cena : {{products.price}} zł
+                  <div class="NormarPrice" *ngIf="products.newPrice == null;else isReducionPrice">
+                      <p>Cena : {{products.price}} zł</p> 
                   </div>
+                  <ng-template #isReducionPrice>
+                  <div class = "ReducionPrice" >
+                     <p>   Cena : <small>{{products.price}} </small>  <strong>{{products.newPrice}}  </strong> zł  </p>
+                  </div>
+                </ng-template>
                 <mat-card-actions class= "buttonBox">
                     <button color="warn" mat-raised-button (click)="deleteElement(products.id)" >Usuń</button>  
                     <button color="primary" mat-raised-button [routerLink]="['/edytuj/',CategoryId, products.id]" >Edytuj</button>  

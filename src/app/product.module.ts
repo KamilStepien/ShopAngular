@@ -6,9 +6,10 @@ class product
     name:string;
     path:string;
     price:number;
+    newPrice:number;
     quantity:number;
     description:string;
-    dateOfCreation:Date;
+    dateOfCreation:number;
     
 }
 
@@ -19,9 +20,9 @@ class productWithQuantityBuy
     categoryId:string;
     name:string;
     path:string;
-    price:number;
+    newPrice:number;
     quantity:number;
     description:string;
-    dateOfCreation:Date;
+    dateOfCreation:number;
     
 }

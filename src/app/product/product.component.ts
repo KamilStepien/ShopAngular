@@ -17,10 +17,17 @@ export class ProductComponent implements OnInit {
   constructor(private route: ActivatedRoute, private db: DbService, private snack: MatSnackBar) { }
   ProductDisplay: Observable<any>;
   CategoryId: string;
+  //aktualna data w milisekundach
+  CurrentDataMiliSeconds:number
   Name: string;
-
+  //dzień w milisekundach
+  msInADay = 24 * 60 * 60 * 1000;
   //paramMap.get('id');
   ngOnInit() {
+    //aktulan data
+    let CurrentDate = new Date();
+    this.CurrentDataMiliSeconds = CurrentDate.getTime() - this.msInADay;
+
     this.ProductDisplay = this.db.getProducts()
       .pipe(
         map(values => values.filter(a => a.payload.doc.data().category == this.CategoryId)

@@ -32,7 +32,8 @@ export class NewProductComponent implements OnInit {
     this.newProduct = this.fb.group({
       
       name: ['', Validators.required],  
-      price: ['',Validators.required],  
+      price: ['',Validators.required], 
+      newPrice: [''],   
       quantity: ['',Validators.required ],  
       description: ['',Validators.required],  
     });
@@ -74,7 +75,7 @@ export class NewProductComponent implements OnInit {
       
       ...this.newProduct.value,
       categoryId: this.CategoryId,
-     dateOfCreation : new Date()
+     dateOfCreation : new Date().getTime()
     };
     
 
