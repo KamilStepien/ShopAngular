@@ -21,6 +21,11 @@ export class DbService {
   addProduct(newProduct: product) {
     this.db.collection('product').add(newProduct);
   }
+
+  addOrder(newOrder:any) {
+    this.db.collection('zamowienia').add(newOrder);
+  }
+  
   
   
   addCategory(newCategory: category) {
@@ -46,10 +51,10 @@ export class DbService {
   deleteProduct(id: string) {
     this.db.doc('product/' + id).delete();
   }
-  deleteAllProduct(name: string) {
+  deleteAllProduct(Id: string) {
     
     this.db.collection('product').get().subscribe(value => {value.docs.forEach(doc => {
-      if(doc.data().category==name)
+      if(doc.data().categoryId==Id)
       {
        this.deleteProduct(doc.id);
       }
@@ -65,7 +70,7 @@ export class DbService {
   }
  
  getUsers():Observable<any> {
-    return this.db.collection('users').snapshotChanges();
+    return this.db.collection('users').get();
   }
  getDB( path:string ):Observable<any> {
     return this.db.collection(path).snapshotChanges();

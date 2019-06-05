@@ -4,6 +4,7 @@ import { database } from 'firebase';
 import { DbService } from '../db.service';
 import { map, filter, first } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
+import { UserService } from '../user.service';
 
 
 
@@ -17,14 +18,20 @@ import { MatSnackBar } from '@angular/material';
 export class CategoriesComponent implements OnInit {
 
   CategoryDisplay :Observable<any>;
+  User = this.us.currenUser;
+  
   //czy wyświetlić edycje kategori  
   isEditCategor= false;
 
   constructor(private db:DbService,
     private snack: MatSnackBar,
+    private us :UserService
    ) { }
+  ngon
 
   ngOnInit() {
+    
+   
     this.CategoryDisplay = this.db.getDB("kategorie")
     .pipe(
       map( values => values.map(a => {
@@ -33,9 +40,12 @@ export class CategoriesComponent implements OnInit {
           return { id, ...data};
         }))
     );
+    
   }
   addElement(text:string)
   {
+   
+    console.log(this.User);
     this.snack.open('Dodano kategorie '+ text, '', {
       duration: 2000,
     });
@@ -49,7 +59,7 @@ export class CategoriesComponent implements OnInit {
       duration: 2000,
     });
     this.db.deleteCategory(categoryId);
-    this.db.deleteAllProduct(categoryName);
+    this.db.deleteAllProduct(categoryId);
 
   }
   

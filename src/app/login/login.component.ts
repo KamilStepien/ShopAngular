@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { Component, OnInit } from '@angular/core';
 import { DbService } from '../db.service';
+import { UserService } from '../user.service';
+import { discardPeriodicTasks } from '@angular/core/testing';
 
 
 @Component({
@@ -14,13 +16,10 @@ import { DbService } from '../db.service';
 export class LoginComponent implements OnInit {
 
   loginUser: FormGroup;
-  user:any ;
+  //nazwa użydkownika
+  User:user ;
   
-
-
-
-  
-  constructor(  private fb:FormBuilder , private db:DbService) { }
+  constructor( private us:UserService, private fb:FormBuilder , private db:DbService) { }
 
   ngOnInit() {
     
@@ -30,14 +29,17 @@ export class LoginComponent implements OnInit {
         email: [''],
       }
     )
-    
+ 
+    this.User = this.us.currenUser;
   }
   login()
   {
     this.db.getUsers().subscribe(value => {value.docs.forEach(doc => {
       if(doc.data().password == this.loginUser.value.password && doc.data().email == this.loginUser.value.email)
       {
-        this.user = doc.data();   
+        this.us.login({...doc.data()} , doc.id);
+        this.User = this.us.currenUser;
+  
       }
     });
   })
@@ -45,9 +47,7 @@ export class LoginComponent implements OnInit {
  
   loginOut()
   {
-    
-    this.user = null;
-    console.log(this.user)
-    
+    this.us.logOut();
+    this.User = null;
   }
 }

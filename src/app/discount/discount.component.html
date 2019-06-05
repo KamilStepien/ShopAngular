@@ -26,11 +26,10 @@
                      <p>   Cena : <small>{{products.price}} </small>  <strong>{{products.newPrice}}  </strong> zł  </p>
                   </div>
                 </ng-template>
-                <mat-card-actions class= "buttonBox">
+                <mat-card-actions class= "buttonBox" *ngIf="this.us.currenUser != null && this.us.currenUser.permissions == true">
                     <button color="warn" mat-raised-button (click)="deleteElement(products.id)" >Usuń</button>  
                     <button color="primary" mat-raised-button [routerLink]="['/edytuj/',CategoryId, products.id]" >Edytuj</button>  
                 </mat-card-actions>
     </div>
 </div>
 
-<button color="warn" mat-raised-button [routerLink]="['/dodajProdukt/', CategoryId]" >Dodaj Produkt</button>  

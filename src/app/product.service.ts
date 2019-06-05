@@ -59,7 +59,11 @@ export class ProductService {
     localStorage.setItem(this.localStorageId ,JSON.stringify(this.shopList) )
   
   }
-
+  cleanShopList()
+  {
+    localStorage.clear();
+    this.shopList = [];
+  }
 
   
 }

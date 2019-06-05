@@ -4,22 +4,28 @@
 
 <ul  *ngFor="let category of CategoryDisplay | async ">
                 <li  [routerLink]="['/kategorie/',category.id]"   routerLinkActive="router-link-active"  >{{category.name}}    </li>  
-                <div class = "buttonBox">
+                <div class = "buttonBox" *ngIf="this.us.currenUser != null && this.us.currenUser.permissions == true" >
+                               
                                 <button color="warn" [routerLink]="['/nowosci']" mat-raised-button (click)="deleteElement(category.id,category.name)" >Usuń</button>  
                                
                 </div>  
-                <div class="editBox" *ngIf="isEditCategor">
+                <div class="editBox" *ngIf="isEditCategor  " >
+                         
                                 <input type="text" #inputNewName>
                                 <button color="primary" mat-raised-button (click)="editName(category.id,inputNewName.value , category.name)" >Zmien nazwę</button>  
                 </div>     
          
         </ul>
-
+<div  *ngIf="this.us.currenUser != null && this.us.currenUser.permissions == true">
 <mat-form-field class="example-full-width">
     <input matInput   placeholder="Categories" #input>
 </mat-form-field>
-<div class = "buttonBox">
+<div class = "buttonBox "  >
+                
         <button color="primary" mat-raised-button (click)="isEditCategor =!isEditCategor" >Edytuj</button>  
         <button color="primary"  mat-raised-button (click)="addElement(input.value)" >Dodaj</button>
 </div>
- 
+</div>
+ <div  *ngIf="this.us.currenUser != null && this.us.currenUser.permissions == true">
+        {{ this.us.currenUser.name}}
+ </div>

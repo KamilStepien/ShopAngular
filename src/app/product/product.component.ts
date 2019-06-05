@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 import { map, filter } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { MatSnackBar } from '@angular/material';
 })
 export class ProductComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private db: DbService, private snack: MatSnackBar) { }
+  constructor(private route: ActivatedRoute, private db: DbService, private snack: MatSnackBar , private us:UserService) { }
   ProductDisplay: Observable<any>;
   CategoryId: string;
   //aktualna data w milisekundach

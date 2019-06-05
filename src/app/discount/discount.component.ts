@@ -4,6 +4,7 @@ import { DbService } from '../db.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Timestamp } from 'rxjs/internal/operators/timestamp';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-discount',
@@ -12,7 +13,7 @@ import { Timestamp } from 'rxjs/internal/operators/timestamp';
 })
 export class DiscountComponent implements OnInit {
 
-  constructor(private db: DbService) { }
+  constructor(private db: DbService, private us:UserService) { }
   ProductDisplay: Observable<any>;
 
 

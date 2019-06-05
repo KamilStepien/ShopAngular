@@ -1,6 +1,7 @@
 
 :host{
     padding: 4px 5px;
+    width: 100%;
 }
 li{
     font-size: 17px;
@@ -16,6 +17,7 @@ ul
 {
     padding: 0;
     margin: 10px;
+  
 }
 
 .buttonBox 

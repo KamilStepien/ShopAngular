@@ -1,5 +1,5 @@
-<form [formGroup]="loginUser" >
-  <div  id= "loginView" *ngIf="user == null" >
+<form [formGroup]="loginUser"  >
+  <div  id= "loginView" *ngIf="User == null" >
   <mat-form-field>
     <input  matInput type="text" formControlName="email" placeholder="E-mail">
   </mat-form-field>
@@ -10,8 +10,8 @@
     <button mat-stroked-button  [routerLink]="['/rejestracja']" >Rejestracja</button>
 
   </div>
-  <div  id= "loginInView"  *ngIf="user != null" >
-       Jestś zalogowany na konto: {{user.name}}
+  <div  id= "loginInView"  *ngIf="User != null" >
+       Jestś zalogowany na konto: {{User.name}}
       <button mat-stroked-button   (click)="loginOut()" >Wyloguj</button>
   </div>
    

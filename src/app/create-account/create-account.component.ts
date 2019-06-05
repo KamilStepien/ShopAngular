@@ -46,6 +46,7 @@ export class CreateAccountComponent implements OnInit {
     {
       const User: user = {
         email: this.emailFormControl.value,
+        permissions:false,
         ...this.newUser.value
       };
       this.db.addUser(User)
