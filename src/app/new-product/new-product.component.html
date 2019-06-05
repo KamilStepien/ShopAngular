@@ -36,10 +36,17 @@
     </table>
    
 </form>
-
+<div *ngFor="let elm of PathImageHref"  class="picture">
+    <img mat-card-image width="100px" [src]="elm" alt="Brak obrazka">
+</div>
 
 
 <div id= "addPicture">
     <label for="file">File:</label>
-    <input type="file" [disabled]="!(NumberOfImage < 5)"  (change)="upload($event)" accept=".png,.jpg" />
+    <input type="file" (change)="upload($event)" [disabled] = "!(NumberOfImage<5)" accept=".png,.jpg" />
+
+</div>
+
+
+
 <button color="primary" mat-raised-button (click)="addProduct()"  [disabled]=" newProduct.invalid ">Dodaj Produkt</button>

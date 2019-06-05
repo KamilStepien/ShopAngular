@@ -25,17 +25,17 @@
     align-items: center;
 
 }
-#rowLeft #imageBox
+#rowLeft .imageBox
 {
 display: flex;
-justify-content: space-between;
+justify-content: center;
 align-items: center;
 width: 100%;
 }
-#rowLeft #imageBox img
-{
 
-width: 26%;
+#rowLeft .imageBox img
+{
+width: 90%;
 }
 #rowLeft img
 {

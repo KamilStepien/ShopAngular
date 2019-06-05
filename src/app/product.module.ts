@@ -10,7 +10,7 @@ class product
     quantity:number;
     description:string;
     dateOfCreation:number;
-    
+    imageUrl:Array<any>
 }
 
 class productWithQuantityBuy
@@ -24,5 +24,5 @@ class productWithQuantityBuy
     quantity:number;
     description:string;
     dateOfCreation:number;
-    
+    imageUrl:Array<any>
 }

@@ -48,4 +48,10 @@ export class ProductDiscriptionComponent implements OnInit {
     this.ps.addProductToCart(User);
   }
 
+  ChangeMainImage(event ,mainImage  )
+  {
+   
+    mainImage.src = event.target.src;
+  }
+
 }

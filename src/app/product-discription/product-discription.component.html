@@ -4,13 +4,14 @@
 
 <div class="row" id="rowLeft">
  
-  <img mat-card-image width="90%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Three_IC_circuit_chips.JPG/220px-Three_IC_circuit_chips.JPG" alt="Brak obrazka">
-<div id="imageBox">
-    <img mat-card-image width="50px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Three_IC_circuit_chips.JPG/220px-Three_IC_circuit_chips.JPG" alt="Brak obrazka">
-    <img mat-card-image width="50px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Three_IC_circuit_chips.JPG/220px-Three_IC_circuit_chips.JPG" alt="Brak obrazka">
-    <img mat-card-image width="50px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Three_IC_circuit_chips.JPG/220px-Three_IC_circuit_chips.JPG" alt="Brak obrazka">
-
-</div>
+      
+    <img mat-card-image width="100%" [src]="product.imageUrl[0]" alt="Brak obrazka " #mainImage>
+    <div class="imageBox" >
+    <div *ngFor="let src of product.imageUrl">
+       
+             <img mat-card-image width="100px" [src]="src" alt="Brak obrazka" (click)="ChangeMainImage($event ,mainImage )">
+            </div>
+    </div>
 </div>
 <div class="row" id="rowRight">
   <div class ="name"><p>{{product.name}}</p> </div>

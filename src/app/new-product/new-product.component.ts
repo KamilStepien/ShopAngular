@@ -1,12 +1,12 @@
 import { Data } from '@angular/router';
 import { filter, finalize, map, first } from 'rxjs/operators';
 import { Observable, identity } from 'rxjs';
-import { FireStorageService } from './../fire-storage.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { DbService } from '../db.service';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material';
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 
 @Component({
   selector: 'app-new-product',
@@ -15,16 +15,18 @@ import { MatSnackBar } from '@angular/material';
 })
 export class NewProductComponent implements OnInit {
 
-  ArryImagePath: Array <string> = []
   newProduct:FormGroup
-  constructor(private snack: MatSnackBar,private fs:FireStorageService ,private fb: FormBuilder , private route: ActivatedRoute , private db:DbService) { }
-  downloadURL:Array<Observable<any>> ;
+  constructor(private snack: MatSnackBar,private storage: AngularFireStorage ,private fb: FormBuilder , private route: ActivatedRoute , private db:DbService) { }
+ 
+  //tablica zawierająca zdjecia do pobrania
+  PathImageHref =[];
   ProductId:string;
   CategoryId:string;
   NumberOfImage = 0;
   //czy edytujemy jakiś obiekt
   isEdit :boolean;
-
+  uploadPercent: Observable<number>;
+  downloadURL: Observable<string>;
   ngOnInit() {
 
    
@@ -65,7 +67,7 @@ export class NewProductComponent implements OnInit {
         });
     }
    
-   // this.downloadURL = this.fs.GetImage(this.CurrentIdImage);
+    
     
   }
 
@@ -75,6 +77,7 @@ export class NewProductComponent implements OnInit {
       
       ...this.newProduct.value,
       categoryId: this.CategoryId,
+      imageUrl: this.PathImageHref,
      dateOfCreation : new Date().getTime()
     };
     
@@ -96,41 +99,35 @@ export class NewProductComponent implements OnInit {
       
     
    
-      //this.db.editProduct(this.currentProduct.id,Product);
     
     
-  
+      this.PathImageHref = [];
   }
   
+
   upload(event)
   {
-    this.fs.SetImage(event,"10").pipe( finalize(()=> {  console.log("elm");this.downloadURL[this.NumberOfImage] = this.fs.GetImage("10") })
-   ).subscribe();
-   this.NumberOfImage ++;  
-    //console.log(path);
-   // this.DisplayImage(path);
-    //this.inputCopyArry(path);
-    document.querySelector("#addPicture").querySelector("input").value =null;
+    this.NumberOfImage ++;
+    const randomId = Math.random().toString(36).substring(2);
+    const file = event.target.files[0];
+    const filePath = randomId;
+    const task = this.storage.upload(filePath, file).then(() => {
+         const ref = this.storage.ref(filePath);
+
+         const downloadURL = ref.getDownloadURL().subscribe(url => { 
+          this.PathImageHref[this.PathImageHref.length] = url;
+         console.log(url);
+          console.log(this.PathImageHref);
+          });
+  });
+  
   }
 
-  inputCopyArry(path:string )
-  {
-    if(path != "")
-    {
-      console.log("rd");
-       this.fs.GetImage(path).pipe(finalize(()=> { this.DisplayImage() })).subscribe();
-      //this.ArryImagePath[this.NumberOfImage] = path;
-      //this.ArryImagePath.forEach(ele => console.log(ele))
-     
-    }
-  }
-
-  DisplayImage()
-  {
+ 
    
-    document.querySelector("#image").innerHTML += '<img width="100px" [src]= "downloadURL['+ +']  | async" />';
-  }
+ 
 
+ 
 
 }
 
