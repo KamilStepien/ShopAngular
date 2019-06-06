@@ -36,20 +36,20 @@ width: 100%;
 flex-wrap: wrap;
 justify-content: center;
 }
-.titleProduct
+.productsBox  .titleProduct
 {
 display: flex;
 justify-content: center;
 font-weight: 800;
 
 }
-.divPrice
+.productsBox  .divPrice
 {
     font-weight: 600;
     font-size: 15px;
 
 }
-.productDiv
+.productsBox  .productDiv
 {
     padding: 1% 3%;
     display: flex;
@@ -62,21 +62,26 @@ font-weight: 800;
     min-width: 175px;
     width: 15%;
 }
-.buttonBox
+.productsBox  .buttonBox
 {
     display: flex;
     justify-content: space-around;
 }
-.buttonBox button
+.productsBox  .buttonBox button
 {
     margin: 5%;
     display: flex;
     justify-content:center;
 }
   
-  .example-header-image {
+.productsBox img {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
     
    
+  }
+  #categoryAndFilters
+  {
+      display: flex;
+      flex-direction: column;
   }

@@ -1,6 +1,7 @@
 
 
-<form [formGroup]="newProduct">
+<div class="mainContiner" >
+<form [formGroup]="newProduct" >
   
   <table class="example-full-width" cellspacing="0"><tr>
       <td><mat-form-field class="example-full-width">
@@ -36,8 +37,14 @@
     </table>
    
 </form>
+
 <div *ngFor="let elm of PathImageHref"  class="picture">
-    <img mat-card-image width="100px" [src]="elm" alt="Brak obrazka">
+    <div class="box">
+
+    
+    <img mat-card-image width="100%" [src]="elm" alt="Brak obrazka">
+    <button color="primary" mat-raised-button (click)="deletePhoto(elm)" >Usun zdjecie</button>
+  </div>
 </div>
 
 
@@ -50,3 +57,4 @@
 
 
 <button color="primary" mat-raised-button (click)="addProduct()"  [disabled]=" newProduct.invalid ">Dodaj Produkt</button>
+</div>

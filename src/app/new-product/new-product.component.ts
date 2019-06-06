@@ -22,6 +22,7 @@ export class NewProductComponent implements OnInit {
   PathImageHref =[];
   ProductId:string;
   CategoryId:string;
+  //ilosc zdjec
   NumberOfImage = 0;
   //czy edytujemy jakiś obiekt
   isEdit :boolean;
@@ -43,7 +44,6 @@ export class NewProductComponent implements OnInit {
     this.route.params.subscribe( params => {
         if (params.category) {
           this.CategoryId =params.category;
-
           this.isEdit =false;
         }
         if (params.id) {
@@ -63,6 +63,7 @@ export class NewProductComponent implements OnInit {
         )
         .subscribe( product => {
           this.newProduct.patchValue(product);
+          this.PathImageHref = product.imageUrl;
           console.log(product);
         });
     }
@@ -123,7 +124,20 @@ export class NewProductComponent implements OnInit {
   
   }
 
- 
+  deletePhoto(url:string)
+  {
+    let tmp :Array<string> =[]
+    for(let i = 0; i< this.PathImageHref.length ; i++)
+    {
+      if(url != this.PathImageHref[i])
+      {
+        tmp[tmp.length] = this.PathImageHref[i];
+      }
+    }
+    this.PathImageHref  = tmp;
+    console.log(this.PathImageHref);
+    this.NumberOfImage--;
+  }
    
  
 

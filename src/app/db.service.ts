@@ -22,7 +22,7 @@ export class DbService {
     this.db.collection('product').add(newProduct);
   }
 
-  addOrder(newOrder:any) {
+  addOrder(newOrder:order) {
     this.db.collection('zamowienia').add(newOrder);
   }
   
@@ -65,6 +65,9 @@ export class DbService {
   getProducts():Observable<any> {
     return this.db.collection('product').snapshotChanges();
   }
+  getOrders():Observable<any> {
+    return this.db.collection('zamowienia').snapshotChanges();
+  }
   getProduct(id:string):Observable<any> {
     return this.db.doc('product/'+id).get();
   }
@@ -72,6 +75,10 @@ export class DbService {
  getUsers():Observable<any> {
     return this.db.collection('users').get();
   }
+  getUsersSnapshot():Observable<any> {
+    return this.db.collection('users').snapshotChanges();
+  }
+  
  getDB( path:string ):Observable<any> {
     return this.db.collection(path).snapshotChanges();
   }

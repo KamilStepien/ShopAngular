@@ -50,7 +50,6 @@ export class ProductDiscriptionComponent implements OnInit {
 
   ChangeMainImage(event ,mainImage  )
   {
-   
     mainImage.src = event.target.src;
   }
 

@@ -35,6 +35,8 @@ import { ProductDiscriptionComponent } from './product-discription/product-discr
 import { ContactComponent } from './contact/contact.component';
 import { LastAddedProductComponent } from './last-added-product/last-added-product.component';
 import { DiscountComponent } from './discount/discount.component';
+import { FiltresComponent } from './filtres/filtres.component';
+import { StatisticForAdminComponent } from './statistic-for-admin/statistic-for-admin.component';
 
 
 @NgModule({
@@ -53,6 +55,8 @@ import { DiscountComponent } from './discount/discount.component';
     ContactComponent,
     LastAddedProductComponent,
     DiscountComponent,
+    FiltresComponent,
+    StatisticForAdminComponent,
  
     
   ],

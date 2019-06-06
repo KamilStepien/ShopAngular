@@ -4,8 +4,8 @@ class user
     name :string;
     lastName:string;
     password:string;
-    e_mail:string;
-    addres:string;
+    email:string;
+    address:string;
     permissions:boolean;
 
 

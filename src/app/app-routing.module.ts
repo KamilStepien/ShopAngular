@@ -11,6 +11,7 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { NewProductComponent } from './new-product/new-product.component';
+import { StatisticForAdminComponent } from './statistic-for-admin/statistic-for-admin.component';
 
 const routes: Routes = [
  
@@ -55,6 +56,10 @@ const routes: Routes = [
 {
   path: 'produkt/:id',
   component : ProductDiscriptionComponent
+},
+{
+  path: 'statystyka',
+  component : StatisticForAdminComponent
 },
 {
   path: 'kategorie/:id',

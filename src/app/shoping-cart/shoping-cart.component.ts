@@ -40,7 +40,7 @@ export class ShopingCartComponent implements OnInit {
   {
     if(this.us.isUserLog)
     {
-      this.db.addOrder({userId:this.us.getUserID(),...this.ps.getProductList()});
+      this.db.addOrder({userId:this.us.getUserID(),products:this.ps.getProductList() , numberOfProducts:this.ps.getProductList().length , sumPrice:this.getSumPirceOrder()});
       this.snack.open('Zamówienienie zostałów złożone', '', {
         duration: 2000,
       });
@@ -54,5 +54,17 @@ export class ShopingCartComponent implements OnInit {
       });
     }
     
+  }
+
+  getSumPirceOrder():number
+  {
+    let sum= 0;
+    const tmp = this.ps.getProductList();
+    for(let i = 0; i < tmp.length; i++)
+    {
+      console.log(tmp[i])
+    }
+
+    return sum;
   }
 }

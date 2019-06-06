@@ -1,0 +1,77 @@
+<div>
+<div id= "butonBox">
+    <button mat-raised-button color="warn"(click)="displayUser()">Uzydkownicy</button>  
+    <button mat-raised-button color="warn" (click)="displayOrders()">Zamowienia</button>  
+    <button mat-raised-button color="warn" (click)="displayProduct()">Produkty</button>  
+</div>
+<div id ="data" >
+  
+    <table  *ngIf="isDisplayProduct">
+        <tr>
+        
+            <th>Name</th>
+            <th>Kategoria</th>
+            <th>Cena</th>
+            <th>Nowa cena</th>
+            <th>Ilosć</th>
+            <th>Data dodania</th>
+        </tr>
+        <tr  *ngFor="let products of ProductDisplay | async ">
+          
+           <td>{{products.name}}</td>
+           <td>{{products.categoryId}}</td>
+           <td>{{products.price}} zł</td>
+           <td >{{products.newPrice}}zł</td>
+           <td>{{products.quantity}}</td>
+           <td>{{products.dateOfCreation}}</td>
+
+        </tr>
+      
+     </table>
+     <table  *ngIf="isDisplayUser">
+        <tr>
+        
+            <th>Name</th>
+            <th>Nazwiko </th>
+            <th>Email</th>
+            <th>Adres</th>
+            <th>Admin</th>
+        </tr>
+        <tr  *ngFor="let user of UsersDisplay | async ">
+          
+           <td>{{user.name}}</td>
+           <td>{{user.lastName}}</td>
+           <td >{{user.email}}</td>
+           <td>{{user.address}}</td>
+           <td>{{user.permissions}}</td>
+
+        </tr>
+      
+     </table>
+     <table  *ngIf="isDisplayOrder">
+        <tr>
+        
+            <th>ID zamowienia</th>
+            <th>ID klienta</th>
+           
+            <th>Ilość produktów</th>
+            <th>Suma zamówienia</th>
+            
+        </tr>
+        <tr  *ngFor="let order of OrdersDisplay | async ">
+          
+           
+           <td>{{order.id}}</td>
+           <td>{{order.userID}}</td>
+           <td>{{order.numberOfProducts}}</td>
+           <td >{{order.sumPrice}}</td>
+          
+
+        </tr>
+      
+     </table>
+</div>
+
+
+
+</div>
