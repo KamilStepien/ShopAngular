@@ -48,6 +48,9 @@ export class DbService {
   deleteCategory(id: string) {
     this.db.doc('kategorie/' + id).delete();
   }
+  deleteUser(id: string) {
+    this.db.doc('users/' + id).delete();
+  }
   deleteProduct(id: string) {
     this.db.doc('product/' + id).delete();
   }

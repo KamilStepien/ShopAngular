@@ -38,9 +38,10 @@ export class ShopingCartComponent implements OnInit {
   }
   order()
   {
+    //sprwadzanie czy zalogowany jest użydkownik
     if(this.us.isUserLog)
     {
-      this.db.addOrder({userId:this.us.getUserID(),products:this.ps.getProductList() , numberOfProducts:this.ps.getProductList().length , sumPrice:this.getSumPirceOrder()});
+      this.db.addOrder({userId:this.us.getUserID(),products:this.ps.getProductList() , numberOfProducts:this.getSumQuantityProduct() , sumPrice:this.getSumPirceOrder()});
       this.snack.open('Zamówienienie zostałów złożone', '', {
         duration: 2000,
       });
@@ -55,14 +56,27 @@ export class ShopingCartComponent implements OnInit {
     }
     
   }
-
+  //sumowanie ceny
   getSumPirceOrder():number
   {
     let sum= 0;
     const tmp = this.ps.getProductList();
     for(let i = 0; i < tmp.length; i++)
     {
-      console.log(tmp[i])
+      
+      sum += tmp[i].price * tmp[i].quantityBuy;
+    }
+
+    return sum;
+  }
+  //ilość prodkuktów
+  getSumQuantityProduct():number
+  {
+    let sum= 0;
+    const tmp = this.ps.getProductList();
+    for(let i = 0; i < tmp.length; i++)
+    {
+     sum += tmp[i].quantityBuy;
     }
 
     return sum;

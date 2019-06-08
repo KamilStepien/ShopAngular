@@ -42,7 +42,7 @@ export class StatisticForAdminComponent implements OnInit {
       )
     );
 
-    this.OrdersDisplay = this.db.getUsersSnapshot()
+    this.OrdersDisplay = this.db.getOrders()
     .pipe(
       map(values => values.map(a => {
           const data = a.payload.doc.data();
@@ -73,4 +73,17 @@ export class StatisticForAdminComponent implements OnInit {
     this.isDisplayUser = false;
     this.isDisplayOrder = true;
   }
+
+
+  deleteUser(id:string)
+  {
+    this.db.deleteUser(id);
+  }
+  
+  deleteProduct(id:string)
+  {
+    this.db.deleteProduct(id);
+  }
+ 
+
 }
