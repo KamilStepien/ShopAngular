@@ -54,6 +54,10 @@ const routes: Routes = [
   component : ProductComponent
 },
 {
+  path: 'filtry/:id/:min/:max',
+  component : ProductComponent
+},
+{
   path: 'produkt/:id',
   component : ProductDiscriptionComponent
 },

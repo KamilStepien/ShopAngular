@@ -37,6 +37,9 @@ import { LastAddedProductComponent } from './last-added-product/last-added-produ
 import { DiscountComponent } from './discount/discount.component';
 import { FiltresComponent } from './filtres/filtres.component';
 import { StatisticForAdminComponent } from './statistic-for-admin/statistic-for-admin.component';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSliderModule} from '@angular/material/slider';
+
 
 
 @NgModule({
@@ -80,7 +83,9 @@ import { StatisticForAdminComponent } from './statistic-for-admin/statistic-for-
     AngularFireStorageModule,
     MatSnackBarModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatSelectModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

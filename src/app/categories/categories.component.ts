@@ -45,7 +45,7 @@ export class CategoriesComponent implements OnInit {
   addElement(text:string)
   {
    
-    console.log(this.User);
+    
     this.snack.open('Dodano kategorie '+ text, '', {
       duration: 2000,
     });

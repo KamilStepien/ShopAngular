@@ -1,0 +1,28 @@
+:host{
+    padding: 4px 5px;
+    width: 100%;
+}
+
+#categoryTopicDiv
+{
+    
+    background-color: rgba(240, 45, 45, 0.863);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-bottom: 10px;
+}
+#categoryTopicDiv p 
+{
+    margin: 14px 0;
+    font-weight: 600;
+    font-size: 15px;
+}
+p , h4
+{
+    margin: 0;
+}
+
+

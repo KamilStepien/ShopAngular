@@ -1,11 +1,17 @@
-<p>
-Filtry
-</p>
+<div id="categoryTopicDiv">
+  <p>Filtry</p>
+  </div>
 <mat-form-field>
-  <mat-label>Favorite food</mat-label>
-  <mat-select>
-    <mat-option *ngFor="let food of foods" [value]="food.value">
-      {{food.viewValue}}
+  <mat-label>Kategoria</mat-label>
+  <mat-select #inputCategory>
+    <mat-option  *ngFor="let category of CategoryDisplay | async " [value]="category.id">
+      {{category.name}}
     </mat-option>
   </mat-select>
 </mat-form-field>
+<h4>Cana </h4>
+<p>od {{inputFor.value}} zł</p>
+<mat-slider #inputFor max = 10000 value = 0></mat-slider>
+<p>do {{inputTo.value}} zł</p>
+<mat-slider [min] = "inputFor.value" max = 10000  value = 10000 #inputTo></mat-slider>
+<button color="primary"  [disabled] = "inputFor.value >= inputTo.value" (click)="search(inputCategory.value , inputFor.value , inputTo.value)"  mat-raised-button>Szukaj</button>

@@ -43,7 +43,26 @@ export class ProductComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       
+      if (params.id && params.min && params.max )
+      {
+        console.log(params.min);
+        this.ProductDisplay = this.db.getProducts()
+          .pipe(
+            map(values => values.filter(a =>
+              { return a.payload.doc.data().categoryId == params.id && a.payload.doc.data().price >= params.min && a.payload.doc.data().price <= params.max } )
+              .map(a => {
+                const data = a.payload.doc.data();
+                const id = a.payload.doc.id;
+                return { id, ...data };
+              })
 
+            )
+          );
+      }
+
+      else
+      {
+        
       if (params.name) {
         this.Name = params.name;
         console.log(params);
@@ -62,7 +81,7 @@ export class ProductComponent implements OnInit {
 
       if (params.id) {
         this.CategoryId = params.id;
-        console.log(params);
+       
         this.ProductDisplay = this.db.getProducts()
           .pipe(
             map(values => values.filter(a => a.payload.doc.data().categoryId == this.CategoryId)
@@ -76,7 +95,7 @@ export class ProductComponent implements OnInit {
           );
       }
 
-    }
+    }}
     );
   }
   deleteElement(idProduct: string) {

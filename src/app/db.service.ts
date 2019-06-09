@@ -68,12 +68,20 @@ export class DbService {
   getProducts():Observable<any> {
     return this.db.collection('product').snapshotChanges();
   }
+
+  
+ 
+
+  getCategory():Observable<any> {
+    return this.db.collection('kategorie').snapshotChanges();
+  }
   getOrders():Observable<any> {
     return this.db.collection('zamowienia').snapshotChanges();
   }
   getProduct(id:string):Observable<any> {
     return this.db.doc('product/'+id).get();
   }
+
  
  getUsers():Observable<any> {
     return this.db.collection('users').get();
