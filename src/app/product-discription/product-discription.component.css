@@ -126,3 +126,33 @@ font-size: 13px;
  font-size: 14px;
  color: rgb(88, 84, 84);
 }
+.NormarPrice p , .ReducionPrice p 
+{
+    margin-top: 0;
+    
+}
+
+.ReducionPrice small 
+{
+    font-size: 14px;
+    text-decoration: line-through;
+     
+}
+.NormarPrice small 
+{
+   
+    margin-bottom: 15px;
+    margin-left: 6px;
+    font-weight: 900;
+    font-size: 35px;
+    color: rgba(207, 60, 60, 0.856);
+}
+
+.ReducionPrice strong
+{
+    margin-bottom: 15px;
+    font-weight: 900;
+    font-size: 35px;
+    color: rgba(207, 60, 60, 0.856);
+   
+}

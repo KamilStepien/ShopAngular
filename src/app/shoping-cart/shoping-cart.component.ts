@@ -7,6 +7,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { forEach } from '@angular/router/src/utils/collection';
 import { UserService } from '../user.service';
 import { MatSnackBar } from '@angular/material';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -41,10 +42,12 @@ export class ShopingCartComponent implements OnInit {
     //sprwadzanie czy zalogowany jest użydkownik
     if(this.us.isUserLog)
     {
+      this.deleteBuyedProduycts()
       this.db.addOrder({userId:this.us.getUserID(),products:this.ps.getProductList() , numberOfProducts:this.getSumQuantityProduct() , sumPrice:this.getSumPirceOrder()});
       this.snack.open('Zamówienienie zostałów złożone', '', {
         duration: 2000,
       });
+
       this.ps.cleanShopList()
       this.dataSource = new MatTableDataSource<productWithQuantityBuy>(this.ps.getProductList());
     }
@@ -63,7 +66,11 @@ export class ShopingCartComponent implements OnInit {
     const tmp = this.ps.getProductList();
     for(let i = 0; i < tmp.length; i++)
     {
-      
+      if(tmp[i].isDiscount)
+      {
+      sum += tmp[i].newPrice* tmp[i].quantityBuy;
+      }
+      else
       sum += tmp[i].price * tmp[i].quantityBuy;
     }
 
@@ -80,5 +87,19 @@ export class ShopingCartComponent implements OnInit {
     }
 
     return sum;
+  }
+
+  // usuwanie kupionych przedmiotów z zapasu sklepu
+  deleteBuyedProduycts(){
+   
+    const tmp = this.ps.getProductList();
+    for(let i = 0; i < tmp.length; i++)
+    {
+      console.log(tmp[i].id);
+      this.db.editProduct(tmp[i].id ,{...tmp[i] , quantity: tmp[i].quantity -tmp[i].quantityBuy } )
+      
+    }
+
+  
   }
 }

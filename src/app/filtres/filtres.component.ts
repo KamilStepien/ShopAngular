@@ -8,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class FiltresComponent implements OnInit {
 
   constructor() { }
+  CategoryDisplay 
 
   ngOnInit() {
+
+
+
+
+
   }
 
 }

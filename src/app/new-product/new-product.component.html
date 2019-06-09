@@ -25,7 +25,7 @@
     </mat-form-field>
     </td></tr>
     <tr><td>
-    <mat-checkbox #inputcheckbox >Dodaj przecene</mat-checkbox>
+    <mat-checkbox id="isDiscount" #inputcheckbox >Dodaj przecene</mat-checkbox>
     </td></tr>
     <tr><td>
         <tr *ngIf="inputcheckbox.checked" ><td><mat-form-field >
@@ -56,5 +56,5 @@
 
 
 
-<button color="primary" mat-raised-button (click)="addProduct()"  [disabled]=" newProduct.invalid ">Dodaj Produkt</button>
+<button color="primary" mat-raised-button (click)="addProduct(inputcheckbox.checked)"  [disabled]=" newProduct.invalid ">Dodaj Produkt</button>
 </div>

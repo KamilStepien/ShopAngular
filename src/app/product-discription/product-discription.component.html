@@ -21,7 +21,15 @@
       <div class= "quantity">
           Ilość: <input   type="number"  value="1" #input> sztuk
       </div>
-      <div class ="price"><p>{{product.price}} zł</p> </div>
+      <div class="NormarPrice" *ngIf="!product.isDiscount;else isReducionPrice">
+        <p>Cena :<small>{{product.price}}</small>  zł</p> 
+    </div>
+    <ng-template #isReducionPrice>
+    <div class = "ReducionPrice" >
+       <p>   Cena : <small>{{product.price}} </small>  <strong>{{product.newPrice}}  </strong> zł  </p>
+    </div>
+  </ng-template>
+
       <button color="primary" (click)="addToShopingCard(product,input.value)" mat-raised-button >Dodaj  do koszyka</button>
       <div class="additionalInformation">
           <p><i class="fas fa-shipping-fast"></i><strong>Dostawa</strong>: Poczta, Kurier lub odbiór osobisty w Warszawie</p>

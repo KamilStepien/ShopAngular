@@ -72,15 +72,22 @@ export class NewProductComponent implements OnInit {
     
   }
 
-  addProduct()
+  addProduct(isDiscount:boolean)
   {
+    console.log(this.PathImageHref);
+    if(this.PathImageHref.length == 0)
+    {
+      this.PathImageHref[0]="https://carolinadojo.com/wp-content/uploads/2017/04/default-image.jpg";
+    }
     const Product: product = {
       
       ...this.newProduct.value,
       categoryId: this.CategoryId,
+      isDiscount: isDiscount,
       imageUrl: this.PathImageHref,
      dateOfCreation : new Date().getTime()
     };
+    
     
 
       if(this.isEdit)
