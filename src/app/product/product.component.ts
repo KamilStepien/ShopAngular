@@ -49,7 +49,7 @@ export class ProductComponent implements OnInit {
         this.ProductDisplay = this.db.getProducts()
           .pipe(
             map(values => values.filter(a =>
-              { return a.payload.doc.data().categoryId == params.id && a.payload.doc.data().price >= params.min && a.payload.doc.data().price <= params.max } )
+              { return a.payload.doc.data().categoryId == params.id && (!a.payload.doc.data().isDiscount)? a.payload.doc.data().price >= params.min && a.payload.doc.data().price <= params.max:a.payload.doc.data().newPrice >= params.min && a.payload.doc.data().newPrice <= params.max } )
               .map(a => {
                 const data = a.payload.doc.data();
                 const id = a.payload.doc.id;
