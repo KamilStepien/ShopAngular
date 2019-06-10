@@ -1,3 +1,4 @@
+import { User } from 'firebase';
 import { DiscountComponent } from './discount/discount.component';
 import { LastAddedProductComponent } from './last-added-product/last-added-product.component';
 import { ContactComponent } from './contact/contact.component';
@@ -8,10 +9,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ProductComponent } from './product/product.component';
 import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
 import { NgModule, Component } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { NewProductComponent } from './new-product/new-product.component';
 import { StatisticForAdminComponent } from './statistic-for-admin/statistic-for-admin.component';
+import { UserService } from './user.service';
+import { CanActivateService } from './can-activate.service';
 
 const routes: Routes = [
  
@@ -43,11 +46,13 @@ const routes: Routes = [
 },
 {
   path: 'dodajProdukt/:category',
-  component : NewProductComponent
+  component : NewProductComponent,
+  canActivate: [CanActivateService],
 },
 {
   path:'edytuj/:category/:id',
-  component : NewProductComponent
+  component : NewProductComponent,
+  canActivate: [CanActivateService],
 },
 {
   path: 'szukaj/:name',
@@ -63,7 +68,10 @@ const routes: Routes = [
 },
 {
   path: 'statystyka',
-  component : StatisticForAdminComponent
+  component : StatisticForAdminComponent,
+  canActivate: [CanActivateService],
+
+  
 },
 {
   path: 'kategorie/:id',
@@ -78,8 +86,12 @@ const routes: Routes = [
 
 ];
 
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+
+ }

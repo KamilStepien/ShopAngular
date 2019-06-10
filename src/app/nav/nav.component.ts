@@ -1,6 +1,7 @@
 import { Router, NavigationEnd } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {filter} from 'rxjs/operators';
+import { UserService } from '../user.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import {filter} from 'rxjs/operators';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router , private us :UserService) { }
  
   
   

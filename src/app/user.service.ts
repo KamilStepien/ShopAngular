@@ -25,8 +25,6 @@ export class UserService {
     this.userId = UserId;
     this.isUserLog = true;
     this.currenUser = User;
-   
-
   }
 
   logOut() {
@@ -34,11 +32,21 @@ export class UserService {
     this.isUserLog = false;
     this.currenUser = null;
   }
+
   getUserID(): string {
     if (this.currenUser != null)
       return this.userId
     else
       return "";
+  }
+
+  IsAdmin():boolean{
+    if(this.currenUser)
+    {
+      return this.currenUser.permissions
+    }
+    else
+    return false;
   }
   
 }

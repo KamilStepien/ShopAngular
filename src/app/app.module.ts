@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {MatListModule} from '@angular/material/list';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -85,7 +86,8 @@ import {MatSliderModule} from '@angular/material/slider';
     MatTableModule,
     MatCardModule,
     MatSelectModule,
-    MatSliderModule
+    MatSliderModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
