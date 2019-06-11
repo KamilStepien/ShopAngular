@@ -1,3 +1,4 @@
+import { DeliveryComponent } from './delivery/delivery.component';
 import { User } from 'firebase';
 import { DiscountComponent } from './discount/discount.component';
 import { LastAddedProductComponent } from './last-added-product/last-added-product.component';
@@ -70,6 +71,13 @@ const routes: Routes = [
   path: 'statystyka',
   component : StatisticForAdminComponent,
   canActivate: [CanActivateService],
+
+  
+},
+
+{
+  path: 'dostawa-i-platnosci',
+  component : DeliveryComponent,
 
   
 },

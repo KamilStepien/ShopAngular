@@ -40,6 +40,7 @@ import { FiltresComponent } from './filtres/filtres.component';
 import { StatisticForAdminComponent } from './statistic-for-admin/statistic-for-admin.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
+import { DeliveryComponent } from './delivery/delivery.component';
 
 
 
@@ -61,6 +62,7 @@ import {MatSliderModule} from '@angular/material/slider';
     DiscountComponent,
     FiltresComponent,
     StatisticForAdminComponent,
+    DeliveryComponent,
  
     
   ],
