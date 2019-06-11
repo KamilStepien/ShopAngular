@@ -16,8 +16,7 @@ import { discardPeriodicTasks } from '@angular/core/testing';
 export class LoginComponent implements OnInit {
 
   loginUser: FormGroup;
-  //nazwa użydkownika
-  User:user ;
+
   
   constructor( private us:UserService, private fb:FormBuilder , private db:DbService) { }
 
@@ -30,7 +29,7 @@ export class LoginComponent implements OnInit {
       }
     )
  
-    this.User = this.us.currenUser;
+  
   }
   login()
   {
@@ -38,16 +37,12 @@ export class LoginComponent implements OnInit {
       if(doc.data().password == this.loginUser.value.password && doc.data().email == this.loginUser.value.email)
       {
         this.us.login({...doc.data()} , doc.id);
-        this.User = this.us.currenUser;
+       
   
       }
     });
   })
   }
  
-  loginOut()
-  {
-    this.us.logOut();
-    this.User = null;
-  }
+
 }

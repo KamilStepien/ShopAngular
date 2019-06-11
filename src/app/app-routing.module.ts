@@ -16,6 +16,7 @@ import { NewProductComponent } from './new-product/new-product.component';
 import { StatisticForAdminComponent } from './statistic-for-admin/statistic-for-admin.component';
 import { UserService } from './user.service';
 import { CanActivateService } from './can-activate.service';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 const routes: Routes = [
  
@@ -66,6 +67,10 @@ const routes: Routes = [
 {
   path: 'produkt/:id',
   component : ProductDiscriptionComponent
+},
+{
+  path: 'moje-zamowienia',
+  component : MyOrdersComponent
 },
 {
   path: 'statystyka',

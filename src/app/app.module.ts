@@ -41,6 +41,8 @@ import { StatisticForAdminComponent } from './statistic-for-admin/statistic-for-
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 import { DeliveryComponent } from './delivery/delivery.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { OrderDescriptioComponent } from './order-descriptio/order-descriptio.component';
 
 
 
@@ -63,6 +65,8 @@ import { DeliveryComponent } from './delivery/delivery.component';
     FiltresComponent,
     StatisticForAdminComponent,
     DeliveryComponent,
+    MyOrdersComponent,
+    OrderDescriptioComponent,
  
     
   ],

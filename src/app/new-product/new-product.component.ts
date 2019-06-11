@@ -112,7 +112,7 @@ export class NewProductComponent implements OnInit {
       this.PathImageHref = [];
   }
   
-
+ /// funkcja odowiedzilna za dodawnie zdjeć do nowo utworzonego produtu , wysyła zdjecia na firebase Storage
   upload(event)
   {
     this.NumberOfImage ++;
@@ -130,7 +130,7 @@ export class NewProductComponent implements OnInit {
   });
   
   }
-
+  // usuwa wybrane zdjecia dodane do produktu  
   deletePhoto(url:string)
   {
     let tmp :Array<string> =[]
@@ -142,7 +142,6 @@ export class NewProductComponent implements OnInit {
       }
     }
     this.PathImageHref  = tmp;
-    console.log(this.PathImageHref);
     this.NumberOfImage--;
   }
    

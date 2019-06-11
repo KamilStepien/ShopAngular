@@ -6,10 +6,15 @@
 <button mat-button [routerLink]="[ '/wyprzedaz']" >Wyprzedaże</button>
 <button mat-button [routerLink]="[ '/kontakt']" >Kontakt</button>
 <button mat-button [routerLink]="[ '/dostawa-i-platnosci']" >Dostawa i płatności</button>
+<button  mat-button [routerLink]="[ '/moje-zamowienia']" >Moje zamówienia</button>
+
 <button mat-button *ngIf="us.IsAdmin()" [routerLink]="[ '/statystyka']" >Statystyka dla admina</button>
 </div>
 <div id="naviRight">
-    
+  <div  id= "loginInView" *ngIf="us.isUserLog" >
+    Jestś zalogowany na konto: {{us.currenUser.name}}
+   <button mat-stroked-button   (click)="us.logOut()" >Wyloguj</button>
+</div>
     <i [routerLink]="['/koszyk']" routerLinkActive="router-link-active"  class="fas fa-shopping-cart"></i>
     <i [routerLink]="['/logowanie']" routerLinkActive="router-link-active" class="fas fa-user"></i>
 </div>

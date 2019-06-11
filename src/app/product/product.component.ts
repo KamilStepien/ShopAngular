@@ -45,7 +45,6 @@ export class ProductComponent implements OnInit {
       
       if (params.id && params.min && params.max )
       {
-        console.log(params.min);
         this.ProductDisplay = this.db.getProducts()
           .pipe(
             map(values => values.filter(a =>
@@ -65,7 +64,6 @@ export class ProductComponent implements OnInit {
         
       if (params.name) {
         this.Name = params.name;
-        console.log(params);
         this.ProductDisplay = this.db.getProducts()
           .pipe(
             map(values => values.filter(a => a.payload.doc.data().name == this.Name)
@@ -99,7 +97,6 @@ export class ProductComponent implements OnInit {
     );
   }
   deleteElement(idProduct: string) {
-    //this.db.getCategory(idCategory).subscribe(value => console.log(value.docs))
     this.snack.open('Usunieto Produkt ', '', {
       duration: 2000,
     });

@@ -1,0 +1,22 @@
+<table  >
+  <tr>
+  
+      <th>ID zamowienia</th>
+      <th>ID klienta</th>
+     
+      <th>Ilość produktów</th>
+      <th>Suma zamówienia</th>
+      
+  </tr>
+  <tr  *ngFor="let order of OrdersDisplay | async ">
+    
+     
+     <td>{{order.id}}</td>
+     <td>{{order.userId}}</td>
+     <td>{{order.numberOfProducts}}</td>
+     <td >{{order.sumPrice}}</td>
+    
+
+  </tr>
+
+</table>

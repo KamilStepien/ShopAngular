@@ -39,5 +39,5 @@
   </table>
 
 
-  <button color="primary" (click)="order()" mat-raised-button  >Zamawiam</button>
+  <button color="primary" [disabled]="ps.getProductList().length <=0" (click)="order()" mat-raised-button  >Zamawiam</button>
 </div>
