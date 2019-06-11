@@ -60,8 +60,7 @@ export class ProductService {
     
     for(let i = 0 ; i<this.shopList.length;i++ )
     {
-      console.log(id);
-      console.log(this.shopList[i].id);
+     
       if(this.shopList[i].id ==id)
       {
        return this.shopList[i].quantityBuy;

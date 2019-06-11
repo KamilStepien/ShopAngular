@@ -1,5 +1,5 @@
-<form [formGroup]="loginUser"  >
-  <div  id= "loginView" *ngIf="User == null" >
+<form [formGroup]="loginUser"   >
+  <div  id= "loginView" *ngIf="!us.isUserLog" >
   <mat-form-field>
     <input  matInput type="text" formControlName="email" placeholder="E-mail">
   </mat-form-field>
