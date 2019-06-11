@@ -42,6 +42,33 @@ export class ProductService {
     
     return this.shopList
   }
+
+  getProduct(id:string):productWithQuantityBuy
+  {
+    this.shopList.forEach(elm => 
+      {
+        if(elm.id ==id)
+        {
+         return elm;
+        }
+      })
+      return null
+  }
+
+  getQuantityBuy(id:string):number
+  {
+    
+    for(let i = 0 ; i<this.shopList.length;i++ )
+    {
+      console.log(id);
+      console.log(this.shopList[i].id);
+      if(this.shopList[i].id ==id)
+      {
+       return this.shopList[i].quantityBuy;
+      }
+    }
+    return 0
+  }
  
   deleteProductFromCart(id:string)
   {

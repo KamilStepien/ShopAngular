@@ -8,7 +8,7 @@
       <th>Suma zamówienia</th>
       
   </tr>
-  <tr  *ngFor="let order of OrdersDisplay | async ">
+  <tr  *ngFor="let order of OrdersDisplay | async " [routerLink]="['/zamowienie' , order.id]" routerLinkActive="router-link-active" >
     
      
      <td>{{order.id}}</td>

@@ -35,20 +35,23 @@ export class ProductDiscriptionComponent implements OnInit {
         )
         .subscribe( elm => {
           this.product =elm;
-          console.log(elm);
+         
         });
     }
   }
 
   addToShopingCard(addproduct:product,quantity:number)
   {
-    if(quantity<=addproduct.quantity)
+
+    if (( parseInt(this.ps.getQuantityBuy(addproduct.id).toString())+ parseInt(quantity.toString()))<=addproduct.quantity )
     {
-    const User: productWithQuantityBuy = {
-      quantityBuy:quantity,
-     ...addproduct
+    const product: productWithQuantityBuy = {
+     
+     ...addproduct,
+     quantityBuy:quantity
     };
-    this.ps.addProductToCart(User);
+  
+    this.ps.addProductToCart(product);
     this.snack.open('Dodano produkt do koszyka', '', {
       duration: 2000,
     });

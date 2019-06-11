@@ -21,7 +21,7 @@ export class ShopingCartComponent implements OnInit {
  
 
   dataSource; 
-  displayedColumns: string[] = ['id','name','category', 'price', 'quantityBuy' ,'sum','buttons'];
+  displayedColumns: string[] = ['id','name', 'price', 'quantityBuy' ,'sum','buttons'];
  
   ngOnInit() 
   {
@@ -95,8 +95,8 @@ export class ShopingCartComponent implements OnInit {
     const tmp = this.ps.getProductList();
     for(let i = 0; i < tmp.length; i++)
     {
-      console.log(tmp[i].id);
-      this.db.editProduct(tmp[i].id ,{...tmp[i] , quantity: tmp[i].quantity -tmp[i].quantityBuy } )
+   
+      this.db.editProductWithQuantityBuy(tmp[i].id ,{...tmp[i] , quantity: tmp[i].quantity -tmp[i].quantityBuy , quantityBuy:0 } )
       
     }
 

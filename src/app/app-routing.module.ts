@@ -17,6 +17,7 @@ import { StatisticForAdminComponent } from './statistic-for-admin/statistic-for-
 import { UserService } from './user.service';
 import { CanActivateService } from './can-activate.service';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { OrderDescriptioComponent } from './order-descriptio/order-descriptio.component';
 
 const routes: Routes = [
  
@@ -71,6 +72,10 @@ const routes: Routes = [
 {
   path: 'moje-zamowienia',
   component : MyOrdersComponent
+},
+{
+  path: 'zamowienie/:id',
+  component : OrderDescriptioComponent
 },
 {
   path: 'statystyka',

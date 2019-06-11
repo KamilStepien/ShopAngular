@@ -1,3 +1,26 @@
-<p>
-  order-descriptio works!
-</p>
+
+
+  <div *ngFor="let order of OrderDisplay| async "  >
+      <table  >
+      <tr>
+          <th></th>
+          <th>Name</th>
+          
+          <th>Cena</th>
+          <th>Przecena</th>
+          <th>Ilosć</th>
+          <th>Suma</th>
+            
+      </tr>
+    <tr *ngFor="let product of order.products">
+        <td><img height="100px" [src]="product.imageUrl[0]" alt=""></td>
+      <td>{{product.name}}</td>
+      <td>{{product.price}} zł</td>
+      <td >{{product.newPrice}}zł</td>
+      <td>{{product.quantityBuy}}</td>
+      <td>{{product.quantityBuy *(product.isDiscount?product.newPrice:product.price)}}</td>
+  </tr>
+  <div class="priceSum"> <h3>Suma:</h3><h4> {{order.sumPrice }} zł</h4></div>
+</table>
+</div>
+
